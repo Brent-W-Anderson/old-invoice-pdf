@@ -8,13 +8,20 @@ import '../styles/app.css';
 export default class App extends React.Component {
   state = {
     loggedIn: false,
+    activeUser: "",
     users: UsersJSON
   };
 
-  login = () => {
-    this.setState({
-      loggedIn: true
-    });
+  login = (name) => {
+    let user = this;
+    // let username = name;
+
+    setTimeout(function() {
+      user.setState({
+        loggedIn: true,
+        activeUser: name
+      });
+    }, 1000);
   };
 
   render() {
@@ -23,7 +30,9 @@ export default class App extends React.Component {
     if(app.loggedIn) {
       return (
         <div className="app">
-          <Navigation />
+          <Navigation
+            activeUser={app.activeUser}
+          />
         </div>
       );
     }else {

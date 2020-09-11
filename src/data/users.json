@@ -1,7 +1,7 @@
 [
   {
     "userID": "1",
-    "user": "temp",
+    "user": "admin",
     "pass": "pass",
     "personalInfo": {
       "name": "John",

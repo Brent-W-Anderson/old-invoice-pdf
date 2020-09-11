@@ -1,5 +1,5 @@
 p {
-  color: #92badd;
+  color: #6fa5fc;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -32,13 +32,14 @@ h2 {
   padding: 0px;
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  text-align: center; }
+  text-align: center;
+  border: 2px solid rgba(161, 196, 253, 0.5); }
   #formContent form {
     padding-top: 20px; }
 
 #formFooter {
   background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
+  border-top: 1px solid rgba(161, 196, 253, 0.5);
   padding: 25px;
   text-align: center;
   border-radius: 0 0 10px 10px;
@@ -55,7 +56,7 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 input[type=button], input[type=submit], input[type=reset] {
   cursor: pointer;
-  background-color: #56baed;
+  background-color: #a1c4fd;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -64,13 +65,13 @@ input[type=button], input[type=submit], input[type=reset] {
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(161, 196, 253, 0.4);
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 30px 20px;
   transition: all 0.2s ease-in-out; }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-  background-color: #39ace7; }
+  background-color: #79abfc; }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
   transform: scale(0.95); }
@@ -93,7 +94,7 @@ input[type=text] {
 
 input[type=text]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9; }
+  border-bottom: 2px solid #a1c4fd; }
 
 input[type=text]:placeholder {
   color: #cccccc; }
@@ -102,36 +103,32 @@ input[type=text]:placeholder {
 /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
   animation-name: fadeInDown;
-  animation-name: fadeInDown;
   animation-duration: 1s;
+  animation-fill-mode: both; }
+
+.fadeOutUp {
+  animation-name: fadeOutUp;
   animation-duration: 1s;
-  animation-fill-mode: both;
   animation-fill-mode: both; }
 
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0); }
   100% {
     opacity: 1;
-    transform: none;
     transform: none; } }
-@keyframes fadeInDown {
+@keyframes fadeOutUp {
   0% {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-  100% {
     opacity: 1;
-    transform: none;
-    transform: none; } }
+    transform: none; }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, 20%, 0); }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -130%, 0); } }
 /* Simple CSS3 Fade-in Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
 @-moz-keyframes fadeIn {
   from {
     opacity: 0; }
@@ -160,7 +157,7 @@ input[type=text]:placeholder {
   display: block;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #a1c4fd;
   content: "";
   transition: width 0.2s; }
 

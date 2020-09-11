@@ -1,0 +1,78 @@
+.nav {
+  user-select: none;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #444;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(68, 68, 68, 0.5); }
+  .nav.fadeInDown {
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both; }
+  .nav .page {
+    width: 100%;
+    height: 50px; }
+    .nav .page .container {
+      margin: auto;
+      width: 1000px;
+      height: 100%; }
+      .nav .page .container .tabs {
+        margin: 0;
+        list-style-type: none; }
+        .nav .page .container .tabs li {
+          cursor: pointer;
+          float: left;
+          text-align: center;
+          width: 100px;
+          margin: 0 10px;
+          padding: 0 20px;
+          color: white;
+          font-size: 20px;
+          line-height: 50px;
+          letter-spacing: 1px;
+          text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
+          transition: .1s ease-in-out; }
+          .nav .page .container .tabs li:hover {
+            font-size: 21px;
+            text-shadow: 2px 2px 5px black, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px black;
+            transition: .2s ease-in-out; }
+          .nav .page .container .tabs li:active {
+            font-size: 20px;
+            text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
+            transition: .1s ease-in-out; }
+          .nav .page .container .tabs li.logout {
+            float: right; }
+      .nav .page .container .user {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        left: 0;
+        z-index: -1; }
+        .nav .page .container .user .container {
+          margin: auto;
+          width: 1000px;
+          height: 100%; }
+          .nav .page .container .user .container p {
+            float: right;
+            margin: 0 120px 0 0; }
+          .nav .page .container .user .container p.username {
+            margin: 0 5px 0 0;
+            line-height: 52px;
+            color: deepskyblue; }
+          .nav .page .container .user .container p.line {
+            color: white;
+            line-height: 50px;
+            font-size: 20px; }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    opacity: 1;
+    transform: none; } }
