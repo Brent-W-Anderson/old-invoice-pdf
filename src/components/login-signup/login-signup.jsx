@@ -19,7 +19,7 @@ export default class LoginSignUp extends React.Component {
       }
     };
 
-    alert("user: " + this.state.user + "\r\n" + "password: " + this.state.pass + "\r\n\r\n" + "login credentials don't match, try again..");
+    alert("user: " + this.state.user + "\r\npassword: " + this.state.pass + "\r\n\r\nlogin credentials don't match, try again..");
 
     this.setState({
       user: "",
