@@ -4,22 +4,42 @@ import '../../styles/navigation/navigation.css';
 
 export default class Navigation extends React.Component {
   state = {
-    animation: "fadeInDown"
+    animation: "pageFadeInDown"
+  };
+
+  buildTabs = (tab, idx) => {
+    const { setActivePage } = this.props;
+    let name = tab.name.substring(0, 12);
+
+    if (tab.name.length > 12) {
+      name += "...";
+    };
+
+    return(
+      <li key={idx} onClick={setActivePage}> {name} </li>
+    );
+  };
+
+  logout = () => {
+    const { logout } = this.props;
+
+    this.setState({
+      animation: "pageFadeOutUp"
+    });
+
+    logout();
   }
 
   render() {
-    const { activeUser, setActivePage } = this.props;
+    const { activeUser, appData } = this.props;
 
     return(
       <div className={`nav ${this.state.animation}`}>
         <div className="page">
           <div className="container">
-            <div className="logo"/>
             <ul className="tabs">
-              <li onClick={setActivePage}> Invoices </li>
-              <li onClick={setActivePage}> Clients </li>
-              <li onClick={setActivePage}> Settings </li>
-              <li className="logout"> Logout </li>
+              {appData.map(this.buildTabs)}
+              <li className="logout" onClick={this.logout}> Logout </li>
             </ul>
             <div className="user">
               <div className="container">

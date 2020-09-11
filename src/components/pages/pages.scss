@@ -4,12 +4,62 @@
   width: 100%;
   left: 0;
   top: 50px;
+  animation-name: pagesFadeInDown;
+  animation-delay: .25s;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+
+  @keyframes pagesFadeInDown {
+    0% {
+      opacity: 0;
+      top: -50px;
+    }
+    50% {
+      top: 50px;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &.pagesFadeOutUp {
+    opacity: 0;
+    animation-name: pagesFadeOutUp;
+    animation-duration: .75s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes pagesFadeOutUp {
+    0% {
+      opacity: 1;
+      top: 50px;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      top: -20px;
+    }
+  }
 
   .page {
     position: absolute;
+    box-sizing: border-box;
     opacity: 0;
     padding: 20px;
     width: 100%;
+    animation-name: fadeOut;
+    animation-duration: .25s;
+    animation-fill-mode: both;
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
 
     .container {
       margin: auto;
@@ -25,7 +75,19 @@
 
     &.selected {
       opacity: 1;
-      transition: 1s;
+      animation-name: fadeIn;
+      animation-duration: .25s;
+      animation-delay: .25s;
+      animation-fill-mode: both;
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
     }
   }
 }

@@ -10,9 +10,17 @@
   background-color: #444;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   border-bottom: 2px solid rgba(#444, .5);
+  z-index: 10;
 
-  &.fadeInDown {
-    animation-name: fadeInDown;
+  &.pageFadeInDown {
+    animation-name: pageFadeInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  &.pageFadeOutUp {
+    animation-name: pageFadeOutUp;
+    animation-delay: .5s;
     animation-duration: 1s;
     animation-fill-mode: both;
   }
@@ -28,15 +36,15 @@
 
       .tabs {
         margin: 0;
+        padding: 0;
         list-style-type: none;
 
         li {
           cursor: pointer;
           float: left;
           text-align: center;
-          width: 100px;
           margin: 0 10px;
-          padding: 0 20px;
+          padding: 0 10px;
           color: white;
           font-size: 20px;
           line-height: 50px;
@@ -48,16 +56,16 @@
           transition: .1s ease-in-out;
 
           &:hover {
-           font-size: 21px;
+           transform: scale(1.05);
            text-shadow: 2px 2px 5px rgba(0,0,0,1),
                         -2px -2px 5px white,
                         2px -2px 5px white,
                         -2px 2px 5px rgba(0,0,0,1);
-           transition: .2s ease-in-out;
+           transition: .1s ease-in-out;
           }
 
           &:active {
-            font-size: 20px;
+            transform: scale(1);
             text-shadow: 2px 1px 4px rgba(0,0,0,.5),
                          -1px -1px 4px rgba(0,0,0,.5),
                           1px -1px 4px rgba(0,0,0,.5),
@@ -87,7 +95,7 @@
 
           p {
             float: right;
-            margin: 0 120px 0 0;
+            margin: 0 90px 0 0;
           }
 
           p.username {
@@ -107,7 +115,7 @@
   }
 }
 
-@keyframes fadeInDown {
+@keyframes pageFadeInDown {
   0% {
     opacity: 0;
     transform: translate3d(0, -100%, 0);
@@ -115,5 +123,16 @@
   100% {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes pageFadeOutUp {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
   }
 }

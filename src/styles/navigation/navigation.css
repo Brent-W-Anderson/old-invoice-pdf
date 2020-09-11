@@ -8,9 +8,15 @@
   width: 100%;
   background-color: #444;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid rgba(68, 68, 68, 0.5); }
-  .nav.fadeInDown {
-    animation-name: fadeInDown;
+  border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+  z-index: 10; }
+  .nav.pageFadeInDown {
+    animation-name: pageFadeInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both; }
+  .nav.pageFadeOutUp {
+    animation-name: pageFadeOutUp;
+    animation-delay: .5s;
     animation-duration: 1s;
     animation-fill-mode: both; }
   .nav .page {
@@ -22,14 +28,14 @@
       height: 100%; }
       .nav .page .container .tabs {
         margin: 0;
+        padding: 0;
         list-style-type: none; }
         .nav .page .container .tabs li {
           cursor: pointer;
           float: left;
           text-align: center;
-          width: 100px;
           margin: 0 10px;
-          padding: 0 20px;
+          padding: 0 10px;
           color: white;
           font-size: 20px;
           line-height: 50px;
@@ -37,11 +43,11 @@
           text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
           transition: .1s ease-in-out; }
           .nav .page .container .tabs li:hover {
-            font-size: 21px;
+            transform: scale(1.05);
             text-shadow: 2px 2px 5px black, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px black;
-            transition: .2s ease-in-out; }
+            transition: .1s ease-in-out; }
           .nav .page .container .tabs li:active {
-            font-size: 20px;
+            transform: scale(1);
             text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
             transition: .1s ease-in-out; }
           .nav .page .container .tabs li.logout {
@@ -59,7 +65,7 @@
           height: 100%; }
           .nav .page .container .user .container p {
             float: right;
-            margin: 0 120px 0 0; }
+            margin: 0 90px 0 0; }
           .nav .page .container .user .container p.username {
             margin: 0 5px 0 0;
             line-height: 52px;
@@ -69,10 +75,17 @@
             line-height: 50px;
             font-size: 20px; }
 
-@keyframes fadeInDown {
+@keyframes pageFadeInDown {
   0% {
     opacity: 0;
     transform: translate3d(0, -100%, 0); }
   100% {
     opacity: 1;
     transform: none; } }
+@keyframes pageFadeOutUp {
+  0% {
+    opacity: 1;
+    transform: none; }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0); } }
