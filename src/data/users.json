@@ -26,5 +26,13 @@
         "balance": 1200.56
       }
     ]
+  },
+  {
+    "userID": "2",
+    "user": "user",
+    "pass": "pass",
+    "personalInfo": {
+      "name": "The Peasant"
+    }
   }
 ]

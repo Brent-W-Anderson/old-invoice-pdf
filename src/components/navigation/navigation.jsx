@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
 
   logout = () => {
     const { logout } = this.props;
-    let answer = window.confirm("Are you sure you want to logout?");
+    let answer = window.confirm("Do you really want to logout?");
 
     if(answer) {
       this.setState({
