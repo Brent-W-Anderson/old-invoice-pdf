@@ -1,0 +1,18 @@
+.pages {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50px; }
+  .pages .page {
+    display: none;
+    margin: auto;
+    width: 1000px;
+    padding: 20px; }
+    .pages .page p {
+      display: block;
+      text-align: center;
+      margin: 0;
+      color: black;
+      font-size: 24px; }
+    .pages .page.selected {
+      display: block; }

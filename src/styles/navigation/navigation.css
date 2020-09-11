@@ -18,7 +18,7 @@
     height: 50px; }
     .nav .page .container {
       margin: auto;
-      width: 1000px;
+      max-width: 1000px;
       height: 100%; }
       .nav .page .container .tabs {
         margin: 0;
@@ -55,7 +55,7 @@
         z-index: -1; }
         .nav .page .container .user .container {
           margin: auto;
-          width: 1000px;
+          max-width: 1000px;
           height: 100%; }
           .nav .page .container .user .container p {
             float: right;

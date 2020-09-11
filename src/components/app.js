@@ -2,13 +2,15 @@ import React from 'react';
 
 import LoginSignUp from './login-signup/login-signup';
 import Navigation from './navigation/navigation';
+import Pages from './pages/pages';
 import UsersJSON from '../data/users.json'; // some test data for now. going to connect a database later.
 import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false,
-    activeUser: "",
+    loggedIn: true,
+    activeUser: "The King",
+    activePage: "invoices",
     users: UsersJSON
   };
 
@@ -24,6 +26,14 @@ export default class App extends React.Component {
     }, 1000);
   };
 
+  setActivePage = (page) => {
+    let pageName = page.target.innerHTML.toLowerCase().replace(/\s/g, '');
+
+    this.setState({
+      activePage: pageName
+    });
+  }
+
   render() {
     let app = this.state;
 
@@ -32,6 +42,10 @@ export default class App extends React.Component {
         <div className="app">
           <Navigation
             activeUser={app.activeUser}
+            setActivePage={this.setActivePage}
+          />
+          <Pages
+            activePage={app.activePage}
           />
         </div>
       );

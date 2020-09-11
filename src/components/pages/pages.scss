@@ -1,0 +1,26 @@
+
+.pages {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50px;
+
+  .page {
+    display: none;
+    margin: auto;
+    width: 1000px;
+    padding: 20px;
+
+    p {
+      display: block;
+      text-align: center;
+      margin: 0;
+      color: black;
+      font-size: 24px;
+    }
+
+    &.selected {
+      display: block;
+    }
+  }
+}
