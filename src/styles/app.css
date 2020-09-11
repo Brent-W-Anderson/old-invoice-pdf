@@ -1,0 +1,9 @@
+body {
+  margin: 0; }
+  body #root {
+    position: absolute;
+    background-color: #d6dcf0;
+    width: 100%;
+    height: 100%; }
+    body #root .app {
+      padding: 40px; }

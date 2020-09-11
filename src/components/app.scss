@@ -1,0 +1,17 @@
+
+$background-color: #d6dcf0;
+
+body {
+  margin: 0;
+
+  #root {
+    position: absolute;
+    background-color: $background-color;
+    width: 100%;
+    height: 100%;
+
+    .app {
+      padding: 40px;
+    }
+  }
+}

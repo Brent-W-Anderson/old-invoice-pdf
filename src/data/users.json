@@ -1,0 +1,30 @@
+[
+  {
+    "userID": "1",
+    "user": "temp",
+    "pass": "pass",
+    "personalInfo": {
+      "name": "John",
+      "address": "915 merry dr.",
+      "email": "john.smith@gmail.com",
+      "phone": "(715) 815-2845"
+    },
+    "clients": [
+      {
+        "clientID": "1",
+        "name": "Google",
+        "address": "123 main st.",
+        "email": "google.gmail.com",
+        "phone": "123-456-7890"
+      }
+    ],
+    "invoices": [
+      {
+        "clientID": "1",
+        "invoiceID": "1",
+        "date": "9/10/2020",
+        "balance": 1200.56
+      }
+    ]
+  }
+]
