@@ -1,7 +1,7 @@
 [
   {
     "name": "Invoices",
-    "data": "collection of invoices here. Add a button for creating a new invoice."
+    "data": "All invoices can be seen here. Add a button for creating a new invoice. toggle views between \"all, paid, and unpaid invoices.\""
   },
   {
     "name": "Clients",

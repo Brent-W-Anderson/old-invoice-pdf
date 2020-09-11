@@ -11,7 +11,7 @@ export default class App extends React.Component {
   state = {
     loggedIn: false,
     transitionOut: false,
-    activeUser: "The King",
+    activeUser: "",
     activePage: "invoices",
     users: UsersJSON,
     appData: AppJSON
@@ -42,9 +42,10 @@ export default class App extends React.Component {
     setTimeout(function() {
       user.setState({
         loggedIn: false,
+        activePage: "invoices",
         activeUser: ""
       });
-    }, 1250);
+    }, 1500);
   }
 
   setActivePage = (page) => {
@@ -64,13 +65,14 @@ export default class App extends React.Component {
           <Navigation
             activeUser={app.activeUser}
             setActivePage={this.setActivePage}
+            activePage={app.activePage}
             appData={app.appData}
             logout={this.logout}
           />
           <Pages
             activePage={app.activePage}
             appData={app.appData}
-            loggedIn={app.transitionOut}
+            transitionOut={app.transitionOut}
           />
         </div>
       );

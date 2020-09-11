@@ -21,7 +21,7 @@ export default class LoginSignUp extends React.Component {
     for(let x = 0; x < users.length; x++) {
       if (users[x].user.toLowerCase() === this.state.user.toLowerCase() && users[x].pass === this.state.pass) {
         event.preventDefault();
-        login(users[x].user);
+        login(users[x].personalInfo.name);
         this.animateOut();
         return;
       }

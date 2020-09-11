@@ -8,7 +8,7 @@ export default class Navigation extends React.Component {
   };
 
   buildTabs = (tab, idx) => {
-    const { setActivePage } = this.props;
+    const { setActivePage, activePage } = this.props;
     let name = tab.name.substring(0, 12);
 
     if (tab.name.length > 12) {
@@ -16,18 +16,21 @@ export default class Navigation extends React.Component {
     };
 
     return(
-      <li key={idx} onClick={setActivePage}> {name} </li>
+      <li key={idx} onClick={setActivePage} className={activePage === tab.name.toLowerCase() ? "selected" : ""}> {name} </li>
     );
   };
 
   logout = () => {
     const { logout } = this.props;
+    let answer = window.confirm("Are you sure you want to logout?");
 
-    this.setState({
-      animation: "pageFadeOutUp"
-    });
+    if(answer) {
+      this.setState({
+        animation: "pageFadeOutUp"
+      });
 
-    logout();
+      logout();
+    };
   }
 
   render() {

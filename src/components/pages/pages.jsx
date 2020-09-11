@@ -31,10 +31,10 @@ export default class Pages extends React.Component {
   };
 
   render() {
-    const { appData, loggedIn } = this.props;
+    const { appData, transitionOut } = this.props;
 
     return (
-      <div className={`pages${loggedIn === true ? " pagesFadeOutUp" : ""}`}>
+      <div className={`pages${transitionOut === true ? " pagesFadeOut" : ""}`}>
         {appData.map(this.buildPages)}
       </div>
     );

@@ -3,31 +3,26 @@
   width: 100%;
   left: 0;
   top: 50px;
-  animation-name: pagesFadeInDown;
-  animation-delay: .25s;
-  animation-duration: 2s;
+  animation-name: pagesFadeIn;
+  animation-delay: .5s;
+  animation-duration: 1s;
   animation-fill-mode: both; }
-@keyframes pagesFadeInDown {
+@keyframes pagesFadeIn {
   0% {
-    opacity: 0;
-    top: -50px; }
-  50% {
-    top: 50px; }
-  100% {
-    opacity: 1; } }
-  .pages.pagesFadeOutUp {
-    opacity: 0;
-    animation-name: pagesFadeOutUp;
-    animation-duration: .75s;
-    animation-fill-mode: both; }
-@keyframes pagesFadeOutUp {
-  0% {
-    opacity: 1;
-    top: 50px; }
-  50% {
     opacity: 0; }
   100% {
-    top: -20px; } }
+    opacity: 1; } }
+  .pages.pagesFadeOut {
+    opacity: 0;
+    animation-name: pagesFadeOut;
+    animation-delay: 0s;
+    animation-duration: .75s;
+    animation-fill-mode: both; }
+@keyframes pagesFadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
   .pages .page {
     position: absolute;
     box-sizing: border-box;
@@ -49,7 +44,8 @@
       .pages .page .container p {
         margin: 0;
         color: black;
-        font-size: 24px; }
+        font-size: 20px;
+        text-shadow: 0 0 2px white; }
     .pages .page.selected {
       opacity: 1;
       animation-name: fadeIn;

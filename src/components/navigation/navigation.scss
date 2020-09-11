@@ -46,7 +46,7 @@
           margin: 0 10px;
           padding: 0 10px;
           color: white;
-          font-size: 20px;
+          font-size: 18px;
           line-height: 50px;
           letter-spacing: 1px;
           text-shadow: 2px 1px 4px rgba(0,0,0,.5),
@@ -71,6 +71,24 @@
                           1px -1px 4px rgba(0,0,0,.5),
                           -1px 1px 4px rgba(0,0,0,.5);
             transition: .1s ease-in-out;
+          }
+
+          &.selected {
+            transform: scale(1.05);
+            text-shadow: 2px 2px 5px rgba(0,0,0,1),
+                         -2px -2px 5px white,
+                         2px -2px 5px white,
+                         -2px 2px 5px rgba(0,0,0,1);
+            transition: .1s ease-in-out;
+
+            &:after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              bottom: 0;
+              left: 0;
+              border-bottom: 2px solid white;
+            }
           }
 
           &.logout {
