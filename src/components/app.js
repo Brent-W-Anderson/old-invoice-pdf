@@ -8,7 +8,7 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: true,
+    loggedIn: false,
     activeUser: "The King",
     activePage: "invoices",
     users: UsersJSON

@@ -9,15 +9,21 @@ export default class Pages extends React.Component {
     return (
       <div className="pages">
         <div className={`page invoices ${activePage === "invoices" ? "selected" : ""}`}>
-          <p> invoices </p>
+          <div className="container">
+            <p> invoices </p>
+          </div>
         </div>
 
         <div className={`page clients ${activePage === "clients" ? "selected" : ""}`}>
-          <p> clients </p>
+          <div className="container">
+            <p> clients </p>
+          </div>
         </div>
 
         <div className={`page settings ${activePage === "settings" ? "selected" : ""}`}>
-          <p> settings </p>
+          <div className="container">
+            <p> settings </p>
+          </div>
         </div>
       </div>
     );

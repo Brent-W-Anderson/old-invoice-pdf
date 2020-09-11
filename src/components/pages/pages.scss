@@ -6,21 +6,26 @@
   top: 50px;
 
   .page {
-    display: none;
-    margin: auto;
-    width: 1000px;
+    position: absolute;
+    opacity: 0;
     padding: 20px;
+    width: 100%;
 
-    p {
-      display: block;
+    .container {
+      margin: auto;
       text-align: center;
-      margin: 0;
-      color: black;
-      font-size: 24px;
+      max-width: 1000px;
+
+      p {
+        margin: 0;
+        color: black;
+        font-size: 24px;
+      }
     }
 
     &.selected {
-      display: block;
+      opacity: 1;
+      transition: 1s;
     }
   }
 }

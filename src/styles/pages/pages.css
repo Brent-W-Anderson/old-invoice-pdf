@@ -4,15 +4,18 @@
   left: 0;
   top: 50px; }
   .pages .page {
-    display: none;
-    margin: auto;
-    width: 1000px;
-    padding: 20px; }
-    .pages .page p {
-      display: block;
+    position: absolute;
+    opacity: 0;
+    padding: 20px;
+    width: 100%; }
+    .pages .page .container {
+      margin: auto;
       text-align: center;
-      margin: 0;
-      color: black;
-      font-size: 24px; }
+      max-width: 1000px; }
+      .pages .page .container p {
+        margin: 0;
+        color: black;
+        font-size: 24px; }
     .pages .page.selected {
-      display: block; }
+      opacity: 1;
+      transition: 1s; }
