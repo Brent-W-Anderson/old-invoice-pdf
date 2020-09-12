@@ -1,26 +1,35 @@
 import React from 'react';
 
+//components
 import LoginSignUp from './login-signup/login-signup';
 import Navigation from './navigation/navigation';
 import Pages from './pages/pages';
+
+//data
 import UsersJSON from '../data/users.json'; // some test data for now. going to connect a database later.
 import AppJSON from '../data/app.json';
+
+//styling
+import 'fontsource-roboto';
 import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
     loggedIn: false,
     transitionOut: false,
-    activeUser: "",
+    activeUser: "The King",
     activePage: "invoices",
+    userData: {},
     users: UsersJSON,
     appData: AppJSON
   };
 
-  login = (username) => {
+  login = (userData) => {
     let user = this;
+    let username = userData.personalInfo.name;
 
     this.setState({
+      userData: userData,
       transitionOut: false
     });
 
@@ -73,6 +82,7 @@ export default class App extends React.Component {
             activePage={app.activePage}
             appData={app.appData}
             transitionOut={app.transitionOut}
+            userData={app.userData}
           />
         </div>
       );

@@ -1,0 +1,60 @@
+
+.invoices {
+  @import "./utility-bar";
+
+  .invoice-list {
+    margin-top: 35px;
+    margin-left: 10px;
+    padding: 5px 0 0 0;
+    width: 970px;
+    background-color: white;
+    border: 2px solid #bbb;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+                inset 2px 2px 8px rgba(0, 0, 0, 0.2),
+                inset -2px -2px 8px rgba(0, 0, 0, 0.2);
+
+    table {
+      user-select: none;
+      display: table;
+      border-collapse: collapse;
+      width: 100%;
+
+      tr {
+        text-align: left;
+        display: table-row;
+
+        &.invoice-line {
+          cursor: pointer;
+        }
+
+        &:hover {
+          &.invoice-line {
+            background-color: rgba(#a1c4fd, .5);
+          }
+        }
+
+        &:active {
+          &.invoice-line {
+            background-color: rgba(#a1c4fd, .4);
+          }
+        }
+      }
+
+      td, th {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+
+      th {
+        color: #444;
+        border-bottom: 2px solid #bbb;
+      }
+
+      td {
+        color: #888;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+}

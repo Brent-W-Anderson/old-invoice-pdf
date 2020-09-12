@@ -1,34 +1,74 @@
 import React from 'react';
 
+import Invoices from './invoices/invoices';
+import Clients from './clients/clients';
+import Settings from './settings/settings';
+
 import '../../styles/pages/pages.css';
 
 export default class Pages extends React.Component {
-  isActivePageSelected = (page) => {
-    const { activePage } = this.props;
-    let name = page.name.substring(0, 12);
 
-    if (page.name.length > 12) {
-      name += "...";
+  isActivePageSelected = (pageName) => {
+    const { activePage } = this.props;
+    let shortPageName = pageName.substring(0, 12);
+
+    if (pageName.length > 12) {
+      shortPageName += "...";
     };
 
-    if (name === activePage) {
+    if (shortPageName === activePage) {
       return " selected";
     };
 
     return "";
   };
 
+
   buildPages = (page, idx) => {
-    let name = page.name.toLowerCase();
+
+    let pageName = page.name.toLowerCase();
 
     return(
-      <div key={idx} className={`page${this.isActivePageSelected({name})}`}>
+      <div key={idx} className={`page${this.isActivePageSelected(`${pageName}`)}`}>
         <div className="container">
-          <p> {page.data} </p>
+          {this.buildPage(pageName, page.data)}
         </div>
       </div>
     );
+
   };
+
+
+  buildPage = (pageName, pageData) => {
+    const { userData } = this.props;
+
+    switch(pageName) {
+      case "invoices":
+        return (
+          <Invoices
+            pageData={pageData}
+            userData={userData}
+          />
+        );
+
+      case "clients":
+        return (
+          <Clients pageData={pageData} />
+        );
+
+      case "settings":
+        return (
+          <Settings pageData={pageData} />
+        );
+
+      default:
+        return (
+          <p> {pageData.info} </p>
+        );
+    };
+
+  };
+
 
   render() {
     const { appData, transitionOut } = this.props;
@@ -39,4 +79,5 @@ export default class Pages extends React.Component {
       </div>
     );
   };
+
 };

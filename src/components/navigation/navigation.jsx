@@ -38,19 +38,20 @@ export default class Navigation extends React.Component {
 
     return(
       <div className={`nav ${this.state.animation}`}>
-        <div className="page">
           <div className="container">
+
             <ul className="tabs">
               {appData.map(this.buildTabs)}
               <li className="logout" onClick={this.logout}> Logout </li>
             </ul>
+            
             <div className="user">
               <div className="container">
                 <p className="line">|</p>
                 <p className="username"> {activeUser} </p>
               </div>
             </div>
-          </div>
+
         </div>
       </div>
     );

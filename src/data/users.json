@@ -11,19 +11,56 @@
     },
     "clients": [
       {
-        "clientID": "1",
+        "clientID": "001",
         "name": "Google",
         "address": "123 main st.",
-        "email": "google.gmail.com",
-        "phone": "123-456-7890"
+        "email": "google@gmail.com",
+        "phone": "(123) 456-7890"
+      },
+      {
+        "clientID": "002",
+        "name": "Amazon",
+        "address": "678 blane rd.",
+        "email": "amazon@gmail.com",
+        "phone": "(123) 456-7890"
       }
     ],
     "invoices": [
       {
-        "clientID": "1",
-        "invoiceID": "1",
+        "invoiceID": "0001",
+        "clientID": "001",
         "date": "9/10/2020",
-        "balance": 1200.56
+        "balance": 0
+      },
+      {
+        "invoiceID": "0002",
+        "clientID": "002",
+        "date": "9/15/2020",
+        "balance": 0
+      },
+      {
+        "invoiceID": "0003",
+        "clientID": "001",
+        "date": "10/03/2020",
+        "balance": 1160.25
+      },
+      {
+        "invoiceID": "0004",
+        "clientID": "001",
+        "date": "10/17/2020",
+        "balance": 1250.94
+      },
+      {
+        "invoiceID": "0005",
+        "clientID": "002",
+        "date": "11/01/2020",
+        "balance": 1097.34
+      },
+      {
+        "invoiceID": "0006",
+        "clientID": "001",
+        "date": "11/16/2020",
+        "balance": 1422.27
       }
     ]
   },

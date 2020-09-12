@@ -27,31 +27,37 @@
     position: absolute;
     box-sizing: border-box;
     opacity: 0;
-    padding: 20px;
     width: 100%;
     animation-name: fadeOut;
     animation-duration: .25s;
-    animation-fill-mode: both; }
+    animation-fill-mode: both;
+    z-index: 0; }
 @keyframes fadeOut {
   0% {
     opacity: 1; }
   100% {
     opacity: 0; } }
     .pages .page .container {
+      user-select: text;
       margin: auto;
       text-align: center;
       max-width: 1000px; }
       .pages .page .container p {
-        margin: 0;
+        box-sizing: border-box;
+        text-shadow: 0 0 2px white;
+        width: 100%;
+        padding: 10px;
+        top: 20px;
+        margin: 20px 0 0 0;
         color: black;
-        font-size: 20px;
-        text-shadow: 0 0 2px white; }
+        font-size: 20px; }
     .pages .page.selected {
       opacity: 1;
       animation-name: fadeIn;
       animation-duration: .25s;
       animation-delay: .25s;
-      animation-fill-mode: both; }
+      animation-fill-mode: both;
+      z-index: 1; }
 @keyframes fadeIn {
   0% {
     opacity: 0; }

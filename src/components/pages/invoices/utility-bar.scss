@@ -1,0 +1,111 @@
+
+.utility-bar {
+  padding: 10px 20px 10px 10px;
+
+  .button {
+    cursor: pointer;
+    user-select: none;
+    float: left;
+    background-image: linear-gradient(to bottom, #ccc 0%, #FFF 10%, #ccc 85%, #ccc 100%);
+    height: 20px;
+    line-height: 22px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #444;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px rgba(black, .3);
+    transition: .1s ease-in-out;
+
+    &.new-inv {
+      position: relative;
+      float: right;
+      line-height: 15px;
+      color: white;
+      border: 1px solid #bbb;
+      background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+      transition: .2s ease-in-out;
+
+      .inner {
+        position: relative;
+        font-weight: bold;
+        top: 2px;
+        font-size: 24px;
+        transition: .2s ease-in-out;
+      }
+
+      &:hover {
+        transform: scale(1.02);
+        background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+        border: 1px solid #bbb;
+        font-weight: bold;
+        text-shadow: 0 0 1px white;
+        transition: .2s ease-in-out;
+
+        .inner {
+          color: deepskyblue;
+          transition: 0s;
+        }
+      }
+
+      &:active {
+        transform: scale(1);
+        background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+        box-shadow: 0 1px 3px rgba(black, .4);
+        height: 20px;
+        border: 1px solid #bbb;
+        font-weight: 100;
+        text-shadow: 0 0 0 white;
+        transition: .1s ease-in-out;
+
+        .inner {
+          color: deepskyblue;
+          transition: 0s;
+        }
+      }
+    }
+
+    &.invoices, &.paid {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.paid, &.unpaid {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &.invoices, &.paid, &.unpaid {
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #888;
+      border-right: 1px solid #888;
+    }
+
+    &:hover {
+      border: 1px solid #666;
+      background-image: linear-gradient(to bottom, #ccc 0%, #FFF 5%, #FFF 15%, #ccc 90%, #ccc 100%);
+      box-shadow: 0 3px 6px rgba(black, .2);
+      z-index: 10;
+      transition: .2s ease-in-out;
+    }
+
+    &:active, &.selected {
+      background-image: linear-gradient(to bottom, #bbb 0%, #FFF 2%, #bbb 85%, #bbb 100%);
+      box-shadow: 0 1.5px 2px rgba(black, .3);
+      border: 1px solid #aaa;
+      margin-top: 1px;
+      height: 18px;
+      transition: .1s ease-in-out;
+
+      &.unpaid {
+        border-top: 1px solid #888;
+        border-right: 1px solid #888;
+      }
+
+      &.invoices {
+        border-left: 1px solid #888;
+        border-top: 1px solid #888;
+      }
+    }
+  }
+}
