@@ -1,5 +1,5 @@
 .invoices .utility-bar {
-  padding: 10px 20px 10px 10px; }
+  padding: 10px; }
   .invoices .utility-bar .button {
     cursor: pointer;
     user-select: none;
@@ -17,39 +17,24 @@
     .invoices .utility-bar .button.new-inv {
       position: relative;
       float: right;
-      line-height: 15px;
       color: white;
       border: 1px solid #bbb;
       background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
       transition: .2s ease-in-out; }
-      .invoices .utility-bar .button.new-inv .inner {
-        position: relative;
-        font-weight: bold;
-        top: 2px;
-        font-size: 24px;
-        transition: .2s ease-in-out; }
       .invoices .utility-bar .button.new-inv:hover {
         transform: scale(1.02);
         background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
         border: 1px solid #bbb;
-        font-weight: bold;
         text-shadow: 0 0 1px white;
         transition: .2s ease-in-out; }
-        .invoices .utility-bar .button.new-inv:hover .inner {
-          color: deepskyblue;
-          transition: 0s; }
       .invoices .utility-bar .button.new-inv:active {
-        transform: scale(1);
+        transform: scale(0.98);
         background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         height: 20px;
         border: 1px solid #bbb;
-        font-weight: 100;
         text-shadow: 0 0 0 white;
         transition: .1s ease-in-out; }
-        .invoices .utility-bar .button.new-inv:active .inner {
-          color: deepskyblue;
-          transition: 0s; }
     .invoices .utility-bar .button.invoices, .invoices .utility-bar .button.paid {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0; }
@@ -82,8 +67,9 @@
 .invoices .invoice-list {
   margin-top: 35px;
   margin-left: 10px;
+  margin-right: 10px;
   padding: 5px 0 0 0;
-  width: 970px;
+  max-width: 970px;
   background-color: white;
   border: 2px solid #bbb;
   border-radius: 5px;
@@ -100,8 +86,16 @@
         cursor: pointer; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }
+      .invoices .invoice-list table tr:hover td {
+        color: #444; }
+        .invoices .invoice-list table tr:hover td.blue {
+          color: #0b66fa; }
       .invoices .invoice-list table tr:active.invoice-line {
         background-color: rgba(161, 196, 253, 0.4); }
+      .invoices .invoice-list table tr:active td {
+        color: #888; }
+        .invoices .invoice-list table tr:active td.blue {
+          color: #6fa5fc; }
     .invoices .invoice-list table td, .invoices .invoice-list table th {
       padding: 8px 12px;
       font-size: 14px; }
@@ -111,3 +105,5 @@
     .invoices .invoice-list table td {
       color: #888;
       border-bottom: 1px solid #ddd; }
+      .invoices .invoice-list table td.blue {
+        color: #6fa5fc; }

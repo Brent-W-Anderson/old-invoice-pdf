@@ -40,7 +40,7 @@
         text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
         transition: .1s ease-in-out; }
         .nav .container .tabs li:hover {
-          transform: scale(1.05);
+          transform: scale(1.03);
           text-shadow: 2px 2px 5px black, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px black;
           transition: .1s ease-in-out; }
         .nav .container .tabs li:active {
@@ -48,8 +48,7 @@
           text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5), -1px -1px 4px rgba(0, 0, 0, 0.5), 1px -1px 4px rgba(0, 0, 0, 0.5), -1px 1px 4px rgba(0, 0, 0, 0.5);
           transition: .1s ease-in-out; }
         .nav .container .tabs li.selected {
-          cursor: default;
-          transform: scale(1.05);
+          transform: scale(1.03);
           text-shadow: 2px 2px 5px black, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px black;
           transition: .1s ease-in-out; }
           .nav .container .tabs li.selected:after {
@@ -75,14 +74,28 @@
         .nav .container .user .container p {
           float: right;
           margin: 0 90px 0 0; }
-        .nav .container .user .container p.username {
-          margin: 0 5px 0 0;
-          line-height: 52px;
-          color: deepskyblue; }
         .nav .container .user .container p.line {
           color: white;
           line-height: 50px;
           font-size: 20px; }
+        .nav .container .user .container p.username {
+          margin: 0 5px 0 0;
+          line-height: 50px;
+          color: deepskyblue; }
+        .nav .container .user .container .userIcon {
+          float: right;
+          height: 100%; }
+          .nav .container .user .container .userIcon .helper {
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%; }
+          .nav .container .user .container .userIcon img {
+            vertical-align: middle;
+            width: auto;
+            margin-top: -22px;
+            margin-right: -7px;
+            height: 28px;
+            transform: rotate(-45deg); }
 
 @keyframes pageFadeInDown {
   0% {

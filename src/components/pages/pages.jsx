@@ -25,7 +25,6 @@ export default class Pages extends React.Component {
 
 
   buildPages = (page, idx) => {
-
     let pageName = page.name.toLowerCase();
 
     return(
@@ -40,12 +39,15 @@ export default class Pages extends React.Component {
 
 
   buildPage = (pageName, pageData) => {
-    const { userData } = this.props;
+    const { userData, invoiceMode, setActiveModeView, setActiveModeEdit } = this.props;
 
     switch(pageName) {
       case "invoices":
         return (
           <Invoices
+            setActiveModeView={setActiveModeView}
+            setActiveModeEdit={setActiveModeEdit}
+            invoiceMode={invoiceMode}
             pageData={pageData}
             userData={userData}
           />

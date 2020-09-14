@@ -70,7 +70,6 @@
         }
 
         &.selected {
-          cursor: default;
           transform: scale(1.03);
           text-shadow: 2px 2px 5px rgba(0,0,0,1),
                        -2px -2px 5px white,
@@ -113,17 +112,38 @@
           margin: 0 90px 0 0;
         }
 
-        p.username {
-          margin: 0 5px 0 0;
-          line-height: 52px;
-          color: deepskyblue;
-        }
-
         p.line {
           color: white;
           line-height: 50px;
           font-size: 20px;
         }
+
+        p.username {
+          margin: 0 5px 0 0;
+          line-height: 50px;
+          color: deepskyblue;
+        }
+
+        .userIcon {
+          float: right;
+          height: 100%;
+
+          .helper {
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+          }
+
+          img {
+            vertical-align: middle;
+            width: auto;
+            margin-top: -22px;
+            margin-right: -7px;
+            height: 28px;
+            transform: rotate(-45deg);
+          }
+        }
+
       }
     }
   }

@@ -19,12 +19,25 @@ export default class App extends React.Component {
     transitionOut: false,
     activeUser: "The King",
     activePage: "invoices",
+    invoiceMode: "view",
     userData: {},
     users: UsersJSON,
     appData: AppJSON
   };
 
-  login = (userData) => {
+  setActiveModeView = () => { // viewmode for the invoices utility buttons.
+    this.setState({
+      invoiceMode: "view"
+    });
+  }
+
+  setActiveModeEdit = () => { // viewmode for the invoices utility buttons.
+    this.setState({
+      invoiceMode: "edit"
+    });
+  }
+
+  login = (userData) => { // login and store the users data for component use.
     let user = this;
     let username = userData.personalInfo.name;
 
@@ -33,7 +46,7 @@ export default class App extends React.Component {
       transitionOut: false
     });
 
-    setTimeout(function() {
+    setTimeout(function() { // let the app animate out before logging in.
       user.setState({
         loggedIn: true,
         activeUser: username
@@ -41,34 +54,45 @@ export default class App extends React.Component {
     }, 1000);
   };
 
-  logout = () => {
+  logout = () => { // logout and reset the users data.
     let user = this;
 
     this.setState({
       transitionOut: true
     });
 
-    setTimeout(function() {
+    setTimeout(function() { // let the app animate out before logging out.
       user.setState({
         loggedIn: false,
+        userData: {},
         activePage: "invoices",
+        invoiceMode: "view",
         activeUser: ""
       });
     }, 1500);
   }
 
-  setActivePage = (page) => {
+  setActivePage = (page) => { // changing tabs
     let pageName = page.target.innerHTML.toLowerCase().replace(/\s/g, '');
+    let app = this;
+
+    if(pageName !== "invoices") { // change view mode back to defaults if not within invoices.
+      setTimeout(function() {
+        app.setActiveModeView();
+      }, 500);
+    }else {
+      app.setActiveModeView();
+    };
 
     this.setState({
       activePage: pageName
     });
-  }
+  };
 
   render() {
     let app = this.state;
 
-    if(app.loggedIn) {
+    if(app.loggedIn) { // if logged in
       return (
         <div className="app">
           <Navigation
@@ -79,6 +103,9 @@ export default class App extends React.Component {
             logout={this.logout}
           />
           <Pages
+            setActiveModeView={this.setActiveModeView}
+            setActiveModeEdit={this.setActiveModeEdit}
+            invoiceMode={app.invoiceMode}
             activePage={app.activePage}
             appData={app.appData}
             transitionOut={app.transitionOut}
@@ -86,7 +113,7 @@ export default class App extends React.Component {
           />
         </div>
       );
-    }else {
+    }else { // if not logged in
       return (
         <div className="app">
           <LoginSignUp

@@ -1,5 +1,5 @@
 .utility-bar {
-  padding: 10px 20px 10px 10px; }
+  padding: 10px; }
   .utility-bar .button {
     cursor: pointer;
     user-select: none;
@@ -17,39 +17,24 @@
     .utility-bar .button.new-inv {
       position: relative;
       float: right;
-      line-height: 15px;
       color: white;
       border: 1px solid #bbb;
       background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
       transition: .2s ease-in-out; }
-      .utility-bar .button.new-inv .inner {
-        position: relative;
-        font-weight: bold;
-        top: 2px;
-        font-size: 24px;
-        transition: .2s ease-in-out; }
       .utility-bar .button.new-inv:hover {
         transform: scale(1.02);
         background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
         border: 1px solid #bbb;
-        font-weight: bold;
         text-shadow: 0 0 1px white;
         transition: .2s ease-in-out; }
-        .utility-bar .button.new-inv:hover .inner {
-          color: deepskyblue;
-          transition: 0s; }
       .utility-bar .button.new-inv:active {
-        transform: scale(1);
+        transform: scale(0.98);
         background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         height: 20px;
         border: 1px solid #bbb;
-        font-weight: 100;
         text-shadow: 0 0 0 white;
         transition: .1s ease-in-out; }
-        .utility-bar .button.new-inv:active .inner {
-          color: deepskyblue;
-          transition: 0s; }
     .utility-bar .button.invoices, .utility-bar .button.paid {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0; }

@@ -44,11 +44,15 @@ export default class Navigation extends React.Component {
               {appData.map(this.buildTabs)}
               <li className="logout" onClick={this.logout}> Logout </li>
             </ul>
-            
+
             <div className="user">
               <div className="container">
                 <p className="line">|</p>
                 <p className="username"> {activeUser} </p>
+                <div className="userIcon">
+                  <div className="helper" />
+                  <img alt="user icon" src="./images/userIcon.png"/>
+                </div>
               </div>
             </div>
 

@@ -3,32 +3,31 @@ import React from 'react';
 import '../../../styles/pages/invoices/invoices.css';
 
 export default class Invoices extends React.Component {
+
   state = {
-    activeButton: "invoices",
+    activeButton: "allInvoices",
     mode: "view",
     selectedInvoiceID: null
   };
 
-  handleActiveBtn = btnPressed => () => {
+
+  handleActiveBtn = btnPressed => () => {// stores the selected button so selectInvoiceList knows which list to return.
     this.setState({
       activeButton: btnPressed
     });
   };
 
-  manageInvoice = invoice => () => {
+
+  saveSelectedInvoice = invoice => () => { // stores the selected invoice so it knows which one to use in buildManageableInvoice.
     this.setState({
-      mode: "edit",
       selectedInvoiceID: parseInt(invoice.invoiceID) - 1
     });
+
+    this.props.setActiveModeEdit();
   };
 
-  viewAll = () => {
-    this.setState({
-      mode: "view"
-    });
-  };
 
-  buildManageableInvoice = () => {
+  buildManageableInvoice = () => { // shows an invoice and it's individual properties (possible added functionality for new invoices)
     const { userData } = this.props;
 
     const invoiceIdx = this.state.selectedInvoiceID;
@@ -38,6 +37,7 @@ export default class Invoices extends React.Component {
     const client = userData.clients[clientIdx];
 
     return (
+
       <div>
         <h1> Edit selected invoice here: </h1>
 
@@ -48,62 +48,56 @@ export default class Invoices extends React.Component {
           <li> {`Balance: ${invoice.balance}`} </li>
         </ul>
 
-        <button onClick={this.viewAll}> Back </button>
+        <button onClick={this.props.setActiveModeView}> Back </button>
       </div>
     );
   };
 
-  buildInvoiceList = (invoice, idx) => {
+
+  createList = (invoice, idx) => { // shows a list item.
     const { userData } = this.props;
     const clientID = parseInt(invoice.clientID) - 1;
     const clientName = userData.clients[clientID].name;
 
-    if(this.state.activeButton === "invoices") {
-      return (
-        <tr key={idx} className="invoice-line" onClick={this.manageInvoice(invoice)}>
-          <td> {`INV ${invoice.invoiceID}`} </td>
-          <td> {clientName} </td>
-          <td> {invoice.date} </td>
-          <td> {`$${invoice.balance}`} </td>
-        </tr>
-      );
+    return(
+      <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
+        <td> {`INV ${invoice.invoiceID}`} </td>
+        <td> {clientName} </td>
+        <td> {invoice.date} </td>
+        <td className={invoice.balance > 0 ? "blue" : ""}> {`$${invoice.balance}`} </td>
+      </tr>
+    );
+  };
+
+
+  selectInvoiceList = (invoice, idx) => { // selects a list to show based on button pressed.
+
+    if(this.state.activeButton === "allInvoices") {
+      return(this.createList(invoice, idx));
     }
 
     if(this.state.activeButton === "paid" && invoice.balance === 0) {
-      return (
-        <tr key={idx} className="invoice-line" onClick={this.manageInvoice(invoice)}>
-          <td> {`INV ${invoice.invoiceID}`} </td>
-          <td> {clientName} </td>
-          <td> {invoice.date} </td>
-          <td> {`$${invoice.balance}`} </td>
-        </tr>
-      );
+      return(this.createList(invoice, idx));
     }
 
     if(this.state.activeButton === "unpaid" && invoice.balance > 0) {
-      return (
-        <tr key={idx} className="invoice-line" onClick={this.manageInvoice(invoice)}>
-          <td> {`INV ${invoice.invoiceID}`} </td>
-          <td> {clientName} </td>
-          <td> {invoice.date} </td>
-          <td> {`$${invoice.balance}`} </td>
-        </tr>
-      );
+      return(this.createList(invoice, idx));
     }
 
   };
 
+
   render() {
-    const { pageData, userData } = this.props;
+    const { pageData, userData, invoiceMode } = this.props;
     const invoice = this.state;
 
-    if(invoice.mode === "view") {
+    if(invoiceMode === "view") { // toggles mode for EDITING the selected invoice vs VIEWING all invoices.
       return (
         <div className="invoices">
           <div className="utility-bar">
             <div
-              className={`button invoices${invoice.activeButton === "invoices" ? " selected" : ""}`}
-              onClick={this.handleActiveBtn("invoices")}
+              className={`button invoices${invoice.activeButton === "allInvoices" ? " selected" : ""}`}
+              onClick={this.handleActiveBtn("allInvoices")}
             > All Inoivces </div>
 
             <div
@@ -116,15 +110,15 @@ export default class Invoices extends React.Component {
               onClick={this.handleActiveBtn("unpaid")}
             > UnPaid </div>
 
-            <div className="button new-inv"> New Invoice ( <span className="inner">+</span> ) </div>
+            <div className="button new-inv"> New Invoice + </div>
           </div>
 
           <div className="invoice-list">
             <table>
               <colgroup>
-                 <col span="1" style={{width: "30%"}}></col>
-                 <col span="1" style={{width: "25%"}}></col>
-                 <col span="1" style={{width: "25%"}}></col>
+                 <col span="1" style={{width: "15%"}}></col>
+                 <col span="1" style={{maxWidth: "45%"}}></col>
+                 <col span="1" style={{width: "20%"}}></col>
                  <col span="1" style={{width: "20%"}}></col>
               </colgroup>
 
@@ -138,7 +132,7 @@ export default class Invoices extends React.Component {
               </thead>
 
               <tbody>
-                {userData.invoices !== undefined ? userData.invoices.map(this.buildInvoiceList) : null}
+                {userData.invoices !== undefined ? userData.invoices.map(this.selectInvoiceList) : null}
               </tbody>
             </table>
           </div>
@@ -148,7 +142,7 @@ export default class Invoices extends React.Component {
       );
     }
 
-    if(invoice.mode === "edit") {
+    if(invoiceMode === "edit") { // for viewing selected invoices (possible added functionality for editing them too).
       return (
         <div className="edit-invoice">
           {this.buildManageableInvoice()}
