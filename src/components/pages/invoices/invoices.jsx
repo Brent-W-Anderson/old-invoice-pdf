@@ -64,7 +64,7 @@ export default class Invoices extends React.Component {
         <td> {`INV ${invoice.invoiceID}`} </td>
         <td> {clientName} </td>
         <td> {invoice.date} </td>
-        <td className={invoice.balance > 0 ? "blue" : ""}> {`$${invoice.balance}`} </td>
+        <td className={invoice.balance > 0 ? "green" : ""}> {`$${invoice.balance}`} </td>
       </tr>
     );
   };

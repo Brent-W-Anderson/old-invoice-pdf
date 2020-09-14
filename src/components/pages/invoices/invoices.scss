@@ -37,8 +37,8 @@
           td {
             color: #444;
 
-            &.blue {
-              color: darken(#a1c4fd, 30%);
+            &.green {
+              color: darken(#1DBC60, 5%);
             }
           }
         }
@@ -51,8 +51,8 @@
           td {
             color: #888;
 
-            &.blue {
-              color: darken(#a1c4fd, 10%);
+            &.green {
+              color: #1DBC60;
             }
           }
         }
@@ -72,8 +72,8 @@
         color: #888;
         border-bottom: 1px solid #ddd;
 
-        &.blue {
-          color: darken(#a1c4fd, 10%);
+        &.green {
+          color: #1DBC60;
         }
       }
     }
