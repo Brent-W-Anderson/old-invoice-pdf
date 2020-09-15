@@ -6,7 +6,6 @@
     margin-top: 35px;
     margin-left: 10px;
     margin-right: 10px;
-    padding: 5px 0 0 0;
     max-width: 970px;
     background-color: white;
     border: 2px solid #bbb;
@@ -25,6 +24,15 @@
         text-align: left;
         display: table-row;
 
+        &.headers {
+          background-color: #555;
+
+          th {
+            color: white;
+            letter-spacing: 1px;
+          }
+        }
+
         &.invoice-line {
           cursor: pointer;
         }
@@ -40,6 +48,24 @@
             &.green {
               color: darken(#1DBC60, 5%);
             }
+
+            &.red {
+              color: darken(red, 5%);
+            }
+          }
+
+          &.totals { // no hover state for totals
+            td {
+              color: #888;
+
+              &.green {
+                color: #1DBC60;
+              }
+
+              &.red {
+                color: red;
+              }
+            }
           }
         }
 
@@ -53,6 +79,10 @@
 
             &.green {
               color: #1DBC60;
+            }
+
+            &.red {
+              color: red;
             }
           }
         }
@@ -74,6 +104,10 @@
 
         &.green {
           color: #1DBC60;
+        }
+
+        &.red {
+          color: red;
         }
       }
     }

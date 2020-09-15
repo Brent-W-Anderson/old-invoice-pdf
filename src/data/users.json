@@ -30,37 +30,43 @@
         "invoiceID": "0001",
         "clientID": "001",
         "date": "9/10/2020",
-        "balance": 0
+        "amountBilled": 950.0,
+        "balanceDue": 0
       },
       {
         "invoiceID": "0002",
         "clientID": "002",
         "date": "9/15/2020",
-        "balance": 0
+        "amountBilled": 1120.49,
+        "balanceDue": 0
       },
       {
         "invoiceID": "0003",
         "clientID": "001",
         "date": "10/03/2020",
-        "balance": 1160.25
+        "amountBilled": 1160.25,
+        "balanceDue": 1160.25
       },
       {
         "invoiceID": "0004",
         "clientID": "001",
         "date": "10/17/2020",
-        "balance": 1250.94
+        "amountBilled": 1250.94,
+        "balanceDue": 750.94
       },
       {
         "invoiceID": "0005",
         "clientID": "002",
         "date": "11/01/2020",
-        "balance": 1097.34
+        "amountBilled": 1097.34,
+        "balanceDue": 297.34
       },
       {
         "invoiceID": "0006",
         "clientID": "001",
         "date": "11/16/2020",
-        "balance": 1422.27
+        "amountBilled": 1422.27,
+        "balanceDue": 422.27
       }
     ]
   },

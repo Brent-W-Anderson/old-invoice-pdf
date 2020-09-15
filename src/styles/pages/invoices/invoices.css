@@ -68,7 +68,6 @@
   margin-top: 35px;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 5px 0 0 0;
   max-width: 970px;
   background-color: white;
   border: 2px solid #bbb;
@@ -82,6 +81,11 @@
     .invoices .invoice-list table tr {
       text-align: left;
       display: table-row; }
+      .invoices .invoice-list table tr.headers {
+        background-color: #555; }
+        .invoices .invoice-list table tr.headers th {
+          color: white;
+          letter-spacing: 1px; }
       .invoices .invoice-list table tr.invoice-line {
         cursor: pointer; }
       .invoices .invoice-list table tr:hover.invoice-line {
@@ -90,12 +94,22 @@
         color: #444; }
         .invoices .invoice-list table tr:hover td.green {
           color: #1aa655; }
+        .invoices .invoice-list table tr:hover td.red {
+          color: #e60000; }
+      .invoices .invoice-list table tr:hover.totals td {
+        color: #888; }
+        .invoices .invoice-list table tr:hover.totals td.green {
+          color: #1DBC60; }
+        .invoices .invoice-list table tr:hover.totals td.red {
+          color: red; }
       .invoices .invoice-list table tr:active.invoice-line {
         background-color: rgba(161, 196, 253, 0.4); }
       .invoices .invoice-list table tr:active td {
         color: #888; }
         .invoices .invoice-list table tr:active td.green {
           color: #1DBC60; }
+        .invoices .invoice-list table tr:active td.red {
+          color: red; }
     .invoices .invoice-list table td, .invoices .invoice-list table th {
       padding: 8px 12px;
       font-size: 14px; }
@@ -107,3 +121,5 @@
       border-bottom: 1px solid #ddd; }
       .invoices .invoice-list table td.green {
         color: #1DBC60; }
+      .invoices .invoice-list table td.red {
+        color: red; }
