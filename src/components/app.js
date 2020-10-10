@@ -15,12 +15,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: true, // set to false for defaults.
+    loggedIn: false, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "The King",
+    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view",
-    userData: UsersJSON[0], // set to empty object for defaults.
+    userData: {}, // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -90,7 +90,7 @@ export default class App extends React.Component {
   };
 
 
-  modifyInvoice = (userData, invoiceIdx, clientIdx) => (inputSelected) => {
+  modifyInvoice = (userData, invoiceIdx, clientIdx) => (inputSelected) => { // editing specific invoice data and storing it back in state
     /*
       Make sure to add specific invoice details separate from personal info details for future updates.
     */
@@ -118,8 +118,10 @@ export default class App extends React.Component {
         newUserData.invoices[invoiceIdx].date = newVal;
         break;
 
-      case "amountBilled":
-        newUserData.invoices[invoiceIdx].amountBilled = newVal;
+      case "amountBilled": // need to change this to a floating # because of the way the input fields work with numbers.
+        (newVal > 0 ?
+          newUserData.invoices[invoiceIdx].amountBilled = parseFloat(newVal) :
+          newUserData.invoices[invoiceIdx].amountBilled = 0);
         break;
 
       case "balanceDue": // need to change this to a floating # because of the way the input fields work with numbers.

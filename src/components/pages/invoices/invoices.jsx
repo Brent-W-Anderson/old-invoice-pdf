@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 
 import Manageable from './manageable/manageable';
 import '../../../styles/pages/invoices/invoices.css';
@@ -65,7 +66,7 @@ export default class Invoices extends React.Component {
       <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
         <td> {`INV ${(new Array(4).join('0') + invoice.invoiceID).slice(-4)}`} </td>
         <td> {clientName} </td>
-        <td> {invoice.date} </td>
+        <td> {Moment(invoice.date).format('MMM DD, YYYY')} </td>
         <td className={this.checkBalance(invoice)}>
           {`$${this.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
         </td>

@@ -74,7 +74,7 @@
         border-top: 1px solid #888; }
 .manageable .invoice {
   background-color: white;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
   .manageable .invoice .topper {
     box-sizing: border-box;
     background-color: deepskyblue;
