@@ -15,12 +15,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false,
+    loggedIn: true, // set to false for defaults.
     transitionOut: false,
     activeUser: "The King",
     activePage: "invoices",
     invoiceMode: "view",
-    userData: {},
+    userData: UsersJSON[0], // set to empty object for defaults.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -89,6 +89,57 @@ export default class App extends React.Component {
     });
   };
 
+
+  modifyInvoice = (userData, invoiceIdx, clientIdx) => (inputSelected) => {
+    /*
+      Make sure to add specific invoice details separate from personal info details for future updates.
+    */
+    const targetID = inputSelected.target.id;
+
+    let activeUser = this.state.activeUser;
+    let newVal = inputSelected.target.value;
+    let newUserData = userData;
+
+    switch(targetID) { // which input would you like to modify?
+      case "invoiceNum":
+        newUserData.invoices[invoiceIdx].invoiceNum = newVal;
+        break;
+
+      case "billToName":
+        newUserData.clients[clientIdx].name = newVal;
+        break;
+
+      case "fromName":
+        newUserData.personalInfo.name = newVal;
+        activeUser = newVal;
+        break;
+
+      case "date":
+        newUserData.invoices[invoiceIdx].date = newVal;
+        break;
+
+      case "amountBilled":
+        newUserData.invoices[invoiceIdx].amountBilled = newVal;
+        break;
+
+      case "balanceDue": // need to change this to a floating # because of the way the input fields work with numbers.
+        (newVal > 0 ?
+          newUserData.invoices[invoiceIdx].balanceDue = parseFloat(newVal) :
+          newUserData.invoices[invoiceIdx].balanceDue = 0);
+        break;
+
+      default:
+        console.log("something went wrong... selected target input:");
+        console.log(targetID);
+    }
+
+    this.setState({
+      activeUser: activeUser,
+      userData: newUserData
+    });
+  };
+
+
   render() {
     let app = this.state;
 
@@ -110,6 +161,7 @@ export default class App extends React.Component {
             appData={app.appData}
             transitionOut={app.transitionOut}
             userData={app.userData}
+            modifyInvoice={this.modifyInvoice}
           />
         </div>
       );

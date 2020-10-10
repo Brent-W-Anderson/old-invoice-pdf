@@ -35,12 +35,17 @@
         border: 1px solid #bbb;
         text-shadow: 0 0 0 white;
         transition: .1s ease-in-out; }
-    .invoices .utility-bar .button.invoices, .invoices .utility-bar .button.paid {
+    .invoices .utility-bar .button.invoices {
       border-top-right-radius: 0;
-      border-bottom-right-radius: 0; }
-    .invoices .utility-bar .button.paid, .invoices .utility-bar .button.unpaid {
+      border-bottom-right-radius: 0;
+      border-left: 1px solid #888; }
+    .invoices .utility-bar .button.unpaid {
+      border-radius: 0;
+      border-left: 0; }
+    .invoices .utility-bar .button.paid {
       border-top-left-radius: 0;
-      border-bottom-left-radius: 0; }
+      border-bottom-left-radius: 0;
+      border-left: 0; }
     .invoices .utility-bar .button.invoices, .invoices .utility-bar .button.paid, .invoices .utility-bar .button.unpaid {
       border-top: 1px solid #888;
       border-bottom: 1px solid #888;
@@ -51,13 +56,24 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
       z-index: 10;
       transition: .2s ease-in-out; }
+      .invoices .utility-bar .button:hover.paid, .invoices .utility-bar .button:hover.unpaid {
+        border: 1px solid #666;
+        border-left: 0; }
+      .invoices .utility-bar .button:hover.invoices {
+        border: 1px solid #666; }
+    .invoices .utility-bar .button.selected {
+      cursor: default; }
+      .invoices .utility-bar .button.selected:hover {
+        border: 1px solid #aaa; }
     .invoices .utility-bar .button:active, .invoices .utility-bar .button.selected {
       background-image: linear-gradient(to bottom, #bbb 0%, #FFF 2%, #bbb 85%, #bbb 100%);
-      box-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.3);
       border: 1px solid #aaa;
       margin-top: 1px;
       height: 18px;
       transition: .1s ease-in-out; }
+      .invoices .utility-bar .button:active.unpaid, .invoices .utility-bar .button:active.paid, .invoices .utility-bar .button.selected.unpaid, .invoices .utility-bar .button.selected.paid {
+        border-left: 0; }
       .invoices .utility-bar .button:active.unpaid, .invoices .utility-bar .button.selected.unpaid {
         border-top: 1px solid #888;
         border-right: 1px solid #888; }
@@ -70,7 +86,7 @@
   margin-right: 10px;
   max-width: 1000px;
   background-color: white;
-  border: 2px solid #bbb;
+  border: 2px solid #888;
   border-radius: 5px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
   .invoices .invoice-list table {

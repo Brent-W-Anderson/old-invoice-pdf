@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Manageable from './manageable/manageable';
 import '../../../styles/pages/invoices/invoices.css';
 
 export default class Invoices extends React.Component {
@@ -24,34 +25,6 @@ export default class Invoices extends React.Component {
     });
 
     this.props.setActiveModeEdit();
-  };
-
-
-  buildManageableInvoice = () => { // shows an invoice and it's individual properties (possible added functionality for new invoices)
-    const { userData } = this.props;
-
-    const invoiceIdx = this.state.selectedInvoiceID;
-    const invoice = userData.invoices[invoiceIdx];
-
-    const clientIdx = parseInt(invoice.clientID) - 1;
-    const client = userData.clients[clientIdx];
-
-    return (
-
-      <div>
-        <h1> Edit selected invoice here: </h1>
-
-        <ul>
-          <li> {`INV ${invoice.invoiceID}`} </li>
-          <li> {`Client: ${client.name}`} </li>
-          <li> {`Date: ${invoice.date}`} </li>
-          <li> {`Billed for: $${invoice.amountBilled}`} </li>
-          <li> {`Balance Due: $${invoice.balanceDue}`} </li>
-        </ul>
-
-        <button onClick={this.props.setActiveModeView}> Back </button>
-      </div>
-    );
   };
 
 
@@ -90,7 +63,7 @@ export default class Invoices extends React.Component {
 
     return(
       <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
-        <td> {`INV ${invoice.invoiceID}`} </td>
+        <td> {`INV ${(new Array(4).join('0') + invoice.invoiceID).slice(-4)}`} </td>
         <td> {clientName} </td>
         <td> {invoice.date} </td>
         <td className={this.checkBalance(invoice)}>
@@ -192,7 +165,7 @@ export default class Invoices extends React.Component {
 
               <thead>
                 <tr className="headers">
-                  <th> Invoice # </th>
+                  <th> Invoice </th>
                   <th> Client </th>
                   <th> Date </th>
                   <th> {this.checkBalanceHeading()} </th>
@@ -214,7 +187,14 @@ export default class Invoices extends React.Component {
     if(invoiceMode === "edit") { // for viewing selected invoices (possible added functionality for editing them too).
       return (
         <div className="edit-invoice">
-          {this.buildManageableInvoice()}
+          {
+            <Manageable
+              userData = {userData}
+              invoiceIdx = {this.state.selectedInvoiceID}
+              setActiveModeView = {this.props.setActiveModeView}
+              modifyInvoice = {this.props.modifyInvoice}
+            />
+          }
         </div>
       );
     };
