@@ -55,7 +55,7 @@ export default class Invoices extends React.Component {
   }
 
 
-  deleteInvoice = (invoice, idx) => e => { // checks to see if you're sure about deleting an invoice
+  deleteInvoice = (invoice, idx) => e => {
     e.stopPropagation();
 
     const confirmed = window.confirm("Are you sure you want to delete invoice " + invoice.invoiceID + "?");
@@ -150,17 +150,17 @@ export default class Invoices extends React.Component {
           <div className="utility-bar">
             <div
               className={`button invoices${invoice.activeButton === "allInvoices" ? " selected" : ""}`}
-              onClick={this.handleActiveBtn("allInvoices")}
+              onMouseDown={this.handleActiveBtn("allInvoices")}
             > All Inoivces </div>
 
             <div
               className={`button unpaid${invoice.activeButton === "unpaid" ? " selected" : ""}`}
-              onClick={this.handleActiveBtn("unpaid")}
+              onMouseDown={this.handleActiveBtn("unpaid")}
             > UnPaid </div>
 
             <div
               className={`button paid${invoice.activeButton === "paid" ? " selected" : ""}`}
-              onClick={this.handleActiveBtn("paid")}
+              onMouseDown={this.handleActiveBtn("paid")}
             > Paid </div>
 
             <div className="button new-inv"> New Invoice + </div>
@@ -169,10 +169,10 @@ export default class Invoices extends React.Component {
           <div className="invoice-list">
             <table>
               <colgroup>
-                 <col span="1" style={{width: "15%"}}></col>
-                 <col span="1" style={{maxWidth: "45%"}}></col>
-                 <col span="1" style={{width: "20%"}}></col>
-                 <col span="1" style={{width: "20%"}}></col>
+                 <col span="1" style={{width: "15%"}} />
+                 <col span="1" style={{maxWidth: "45%"}} />
+                 <col span="1" style={{width: "20%"}} />
+                 <col span="1" style={{width: "20%"}} />
               </colgroup>
 
               <thead>

@@ -115,10 +115,14 @@
           line-height: 33px;
           color: #444; }
           .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:hover {
-            background-color: #555;
+            text-shadow: 0 0 2px white;
+            box-shadow: inset 0 0 3px white;
+            background-color: #666;
             color: red; }
           .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
-            background-color: #666;
+            text-shadow: 0 0 2px white;
+            box-shadow: 0 0 5px white;
+            background-color: #777;
             color: red; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }

@@ -143,7 +143,6 @@ export default class App extends React.Component {
 
 
   deleteInvoice = (invoice, idx) => { // deletes an invoice
-    console.log("invoice " + invoice.invoiceID + " deleted..");
     let newUserData = this.state.userData;
     newUserData.invoices.splice(idx, 1);
 

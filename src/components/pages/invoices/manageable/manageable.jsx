@@ -26,13 +26,13 @@ export default class Manageable extends React.Component {
         <div className="utility-bar">
           <div
           className={`button preview${this.state.selectedBtn === "preview" ? " selected" : ""}`}
-          onClick={this.handleSelectedBtn("preview")}>
+          onMouseDown={this.handleSelectedBtn("preview")}>
             Preview
           </div>
 
           <div
           className={`button edit${this.state.selectedBtn === "edit" ? " selected" : ""}`}
-          onClick={this.handleSelectedBtn("edit")}>
+          onMouseDown={this.handleSelectedBtn("edit")}>
             Edit
           </div>
         </div>
