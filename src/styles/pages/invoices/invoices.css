@@ -102,8 +102,24 @@
         .invoices .invoice-list table tr.headers th {
           color: white;
           letter-spacing: 1px; }
-      .invoices .invoice-list table tr.invoice-line {
-        cursor: pointer; }
+      .invoices .invoice-list table tr.invoice-line .delete-container {
+        display: inline-block;
+        float: right; }
+        .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn {
+          cursor: pointer;
+          position: absolute;
+          margin-top: -8px;
+          margin-left: -17px;
+          height: 33px;
+          padding: 0 10px;
+          line-height: 33px;
+          color: #444; }
+          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:hover {
+            background-color: #555;
+            color: red; }
+          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
+            background-color: #666;
+            color: red; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }
       .invoices .invoice-list table tr:hover td {

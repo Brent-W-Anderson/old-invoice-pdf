@@ -15,12 +15,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false, // set to true to bypass logging in.
+    loggedIn: true, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
+    activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view",
-    userData: {}, // set to the specific array index from the users if looking for some sample data.
+    userData: UsersJSON[0], // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -142,6 +142,21 @@ export default class App extends React.Component {
   };
 
 
+  deleteInvoice = (invoice, idx) => { // deletes an invoice
+    console.log("invoice " + invoice.invoiceID + " deleted..");
+    let newUserData = this.state.userData;
+    newUserData.invoices.splice(idx, 1);
+
+    for(var x = 0; x < newUserData.invoices.length; x++) {
+      newUserData.invoices[x].invoiceID = (x + 1).toString();
+    }
+
+    this.setState({
+      userData: newUserData
+    });
+  }
+
+
   render() {
     let app = this.state;
 
@@ -164,6 +179,7 @@ export default class App extends React.Component {
             transitionOut={app.transitionOut}
             userData={app.userData}
             modifyInvoice={this.modifyInvoice}
+            deleteInvoice={this.deleteInvoice}
           />
         </div>
       );

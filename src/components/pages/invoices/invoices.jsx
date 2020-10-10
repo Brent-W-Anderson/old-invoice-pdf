@@ -55,12 +55,20 @@ export default class Invoices extends React.Component {
   }
 
 
+  deleteInvoice = (invoice, idx) => e => { // checks to see if you're sure about deleting an invoice
+    e.stopPropagation();
+
+    const confirmed = window.confirm("Are you sure you want to delete invoice " + invoice.invoiceID + "?");
+    if(confirmed) {
+      this.props.deleteInvoice(invoice, idx)
+    }
+  }
+
+
   createList = (invoice, idx) => { // shows a list item.
     const { userData } = this.props;
     const clientID = parseInt(invoice.clientID) - 1;
     const clientName = userData.clients[clientID].name;
-
-
 
     return(
       <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
@@ -69,6 +77,9 @@ export default class Invoices extends React.Component {
         <td> {Moment(invoice.date).format('MMM DD, YYYY')} </td>
         <td className={this.checkBalance(invoice)}>
           {`$${this.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+          <div className="delete-container">
+            <div onClick={this.deleteInvoice(invoice, idx)} className="delete-btn"> X </div>
+          </div>
         </td>
       </tr>
     );
