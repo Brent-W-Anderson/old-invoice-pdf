@@ -66,14 +66,10 @@ export default class Invoices extends React.Component {
 
 
   createList = (invoice, idx) => { // shows a list item.
-    const { userData } = this.props;
-    const clientID = parseInt(invoice.clientID) - 1;
-    const clientName = userData.clients[clientID].name;
-
     return(
       <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
         <td> {`INV ${(new Array(4).join('0') + invoice.invoiceID).slice(-4)}`} </td>
-        <td> {clientName} </td>
+        <td> {invoice.toName} </td>
         <td> {Moment(invoice.date).format('MMM DD, YYYY')} </td>
         <td className={this.checkBalance(invoice)}>
           {`$${this.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
@@ -125,7 +121,7 @@ export default class Invoices extends React.Component {
 
     return(
       <tr className="totals">
-        <td></td>
+        <td className="no-border"></td>
         <td></td>
         <td style={{float: "right", fontWeight: "bold"}}>
           {this.state.activeButton === "paid" ? "Total:" : "Balance Due:"}

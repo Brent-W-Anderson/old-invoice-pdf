@@ -18,7 +18,6 @@ export default class Manageable extends React.Component {
 
     const invoice = userData.invoices[invoiceIdx];
     const clientIdx = parseInt(invoice.clientID) - 1;
-    const client = userData.clients[clientIdx];
 
     return (
 
@@ -48,7 +47,7 @@ export default class Manageable extends React.Component {
                 <div className="label">
                   <label htmlFor="fromName"> Name: </label>
                 </div>
-                <input type="text" id="fromName" value={userData.personalInfo.name} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+                <input type="text" id="fromName" value={invoice.fromName} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
               </div>
 
               <div className="item text">
@@ -87,7 +86,7 @@ export default class Manageable extends React.Component {
                 <div className="label">
                   <label htmlFor="billToName"> Name: </label>
                 </div>
-                <input type="text" id="billToName" value={client.name} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+                <input type="text" id="billToName" value={invoice.toName} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
               </div>
             </div>
           </form>

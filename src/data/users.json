@@ -30,6 +30,8 @@
         "invoiceID": "1",
         "invoiceNum": "1",
         "clientID": "1",
+        "fromName": "The King",
+        "toName": "Google",
         "date": "2020-09-10",
         "amountBilled": 950.0,
         "balanceDue": 0
@@ -38,6 +40,8 @@
         "invoiceID": "2",
         "invoiceNum": "1",
         "clientID": "2",
+        "fromName": "The King",
+        "toName": "Amazon",
         "date": "2020-09-15",
         "amountBilled": 1120.49,
         "balanceDue": 0
@@ -46,6 +50,8 @@
         "invoiceID": "3",
         "invoiceNum": "2",
         "clientID": "1",
+        "fromName": "The King",
+        "toName": "Google",
         "date": "2020-10-03",
         "amountBilled": 1160.25,
         "balanceDue": 1160.25
@@ -54,6 +60,8 @@
         "invoiceID": "4",
         "invoiceNum": "3",
         "clientID": "1",
+        "fromName": "The King",
+        "toName": "Google",
         "date": "2020-10-17",
         "amountBilled": 1250.94,
         "balanceDue": 750.94
@@ -62,6 +70,8 @@
         "invoiceID": "5",
         "invoiceNum": "2",
         "clientID": "2",
+        "fromName": "The King",
+        "toName": "Amazon",
         "date": "2020-11-01",
         "amountBilled": 1097.34,
         "balanceDue": 297.34
@@ -70,6 +80,8 @@
         "invoiceID": "6",
         "invoiceNum": "4",
         "clientID": "1",
+        "fromName": "The King",
+        "toName": "Google",
         "date": "2020-11-16",
         "amountBilled": 1422.27,
         "balanceDue": 422.27

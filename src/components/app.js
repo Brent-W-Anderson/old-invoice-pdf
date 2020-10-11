@@ -15,23 +15,33 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: true, // set to true to bypass logging in.
+    loggedIn: false, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
+    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
-    invoiceMode: "view",
-    userData: UsersJSON[0], // set to the specific array index from the users if looking for some sample data.
+    invoiceMode: "view", // dont change this unless you want to start with a specific manageable invoice.
+    userData: {}, // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
 
-  setActiveModeView = () => { // viewmode for the invoices utility buttons.
-    this.setState({
-      invoiceMode: "view"
-    });
+  setActiveModeView = (clicked) => { // view all of the invoices
+    const app = this;
+
+    if(clicked === "invoices") {
+      app.setState({
+        invoiceMode: "view"
+      });
+    }else {
+      setTimeout(function () {
+        app.setState({
+          invoiceMode: "view"
+        });
+      }, 250);
+    }
   }
 
-  setActiveModeEdit = () => { // viewmode for the invoices utility buttons.
+  setActiveModeEdit = () => { // view a specific manageable/ editable invoice
     this.setState({
       invoiceMode: "edit"
     });
@@ -81,7 +91,7 @@ export default class App extends React.Component {
         app.setActiveModeView();
       }, 500);
     }else {
-      app.setActiveModeView();
+      app.setActiveModeView("invoices");
     };
 
     this.setState({
@@ -96,7 +106,6 @@ export default class App extends React.Component {
     */
     const targetID = inputSelected.target.id;
 
-    let activeUser = this.state.activeUser;
     let newVal = inputSelected.target.value;
     let newUserData = userData;
 
@@ -106,12 +115,11 @@ export default class App extends React.Component {
         break;
 
       case "billToName":
-        newUserData.clients[clientIdx].name = newVal;
+        newUserData.invoices[invoiceIdx].toName = newVal;
         break;
 
       case "fromName":
-        newUserData.personalInfo.name = newVal;
-        activeUser = newVal;
+        newUserData.invoices[invoiceIdx].fromName = newVal;
         break;
 
       case "date":
@@ -131,12 +139,11 @@ export default class App extends React.Component {
         break;
 
       default:
-        console.log("something went wrong... selected target input:");
-        console.log(targetID);
+        console.warn("something went wrong... selected target input:");
+        console.warn(targetID);
     }
 
     this.setState({
-      activeUser: activeUser,
       userData: newUserData
     });
   };

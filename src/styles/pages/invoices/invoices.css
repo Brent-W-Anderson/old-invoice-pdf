@@ -87,7 +87,7 @@
   max-width: 1000px;
   background-color: white;
   border: 2px solid #888;
-  border-radius: 5px;
+  border-radius: 5px 5px 5px 40px;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
   .invoices .invoice-list table {
     user-select: none;
@@ -107,25 +107,24 @@
         float: right; }
         .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn {
           cursor: pointer;
+          display: none;
           position: absolute;
+          text-shadow: 0 0 2px white;
+          box-shadow: inset 0 0 3px white;
           margin-top: -8px;
           margin-left: -17px;
           height: 33px;
           padding: 0 10px;
           line-height: 33px;
-          color: #444; }
-          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:hover {
-            text-shadow: 0 0 2px white;
-            box-shadow: inset 0 0 3px white;
-            background-color: #666;
-            color: red; }
+          background-color: #555;
+          color: red; }
           .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
-            text-shadow: 0 0 2px white;
-            box-shadow: 0 0 5px white;
-            background-color: #777;
+            background-color: #666;
             color: red; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }
+        .invoices .invoice-list table tr:hover.invoice-line .delete-container .delete-btn {
+          display: block; }
       .invoices .invoice-list table tr:hover td {
         color: #444; }
         .invoices .invoice-list table tr:hover td.green {
@@ -155,6 +154,8 @@
     .invoices .invoice-list table td {
       color: #888;
       border-bottom: 1px solid #ddd; }
+      .invoices .invoice-list table td.no-border {
+        border-bottom: 0; }
       .invoices .invoice-list table td.green {
         color: #1DBC60; }
       .invoices .invoice-list table td.red {

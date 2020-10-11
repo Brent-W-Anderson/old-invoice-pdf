@@ -9,7 +9,7 @@
     max-width: 1000px;
     background-color: white;
     border: 2px solid #888;
-    border-radius: 5px;
+    border-radius: 5px 5px 5px 40px;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3),
                 inset 2px 2px 8px rgba(0, 0, 0, 0.2),
                 inset -2px -2px 8px rgba(0, 0, 0, 0.2);
@@ -40,25 +40,20 @@
 
             .delete-btn {
               cursor: pointer;
+              display: none;
               position: absolute;
+              text-shadow: 0 0 2px white;
+              box-shadow: inset 0 0 3px white;
               margin-top: -8px;
               margin-left: -17px;
               height: 33px;
               padding: 0 10px;
               line-height: 33px;
-              color: #444;
-
-              &:hover {
-                text-shadow: 0 0 2px white;
-                box-shadow: inset 0 0 3px white;
-                background-color: #666;
-                color: red;
-              }
+              background-color: #555;
+              color: red;
 
               &:active {
-                text-shadow: 0 0 2px white;
-                box-shadow: 0 0 5px white;
-                background-color: #777;
+                background-color: #666;
                 color: red;
               }
             }
@@ -68,6 +63,10 @@
         &:hover {
           &.invoice-line {
             background-color: rgba(#a1c4fd, .5);
+
+            .delete-container .delete-btn {
+              display: block;
+            }
           }
 
           td {
@@ -129,6 +128,10 @@
       td {
         color: #888;
         border-bottom: 1px solid #ddd;
+
+        &.no-border {
+          border-bottom: 0;
+        }
 
         &.green {
           color: #1DBC60;
