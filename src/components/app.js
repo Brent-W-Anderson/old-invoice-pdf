@@ -15,12 +15,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false, // set to true to bypass logging in.
+    loggedIn: true, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
+    activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view", // dont change this unless you want to start with a specific manageable invoice.
-    userData: {}, // set to the specific array index from the users if looking for some sample data.
+    userData: UsersJSON[0], // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -100,52 +100,80 @@ export default class App extends React.Component {
   };
 
 
-  modifyInvoice = (userData, invoiceIdx, clientIdx) => (inputSelected) => { // editing specific invoice data and storing it back in state
-    /*
-      Make sure to add specific invoice details separate from personal info details for future updates.
-    */
-    const targetID = inputSelected.target.id;
+  modifyInvoice = (userData, invoiceIdx, clientIdx, otherInputSelected, otherData) => (inputSelected) => { // editing specific invoice data and storing it back in state
+    const app = this;
+    let targetID, newVal;
 
-    let newVal = inputSelected.target.value;
+    if(inputSelected !== undefined) {
+      targetID = inputSelected.target.id;
+      newVal = inputSelected.target.value;
+    }else {
+      switch(otherInputSelected) {
+        case "billToEmail":
+          targetID = otherInputSelected;
+          newVal = otherData;
+          break;
+
+        default:
+          console.warn("no other input selected to save to app state.");
+      };
+    }
     let newUserData = userData;
 
+    function overwriteState() {
+      app.setState({
+        userData: newUserData
+      });
+    }
+
     switch(targetID) { // which input would you like to modify?
-      case "invoiceNum":
-        newUserData.invoices[invoiceIdx].invoiceNum = newVal;
+      case "invoiceName":
+        newUserData.invoices[invoiceIdx].invoiceName = newVal;
+        overwriteState();
         break;
 
       case "billToName":
         newUserData.invoices[invoiceIdx].toName = newVal;
+        overwriteState();
+        break;
+
+      case "billToEmail":
+        console.log("successfully wrote email to user database state");
+        console.log(newVal);
+        newUserData.invoices[invoiceIdx].toEmail = newVal;
+        overwriteState();
         break;
 
       case "fromName":
         newUserData.invoices[invoiceIdx].fromName = newVal;
+        overwriteState();
         break;
 
       case "date":
         newUserData.invoices[invoiceIdx].date = newVal;
+        overwriteState();
         break;
 
       case "amountBilled": // need to change this to a floating # because of the way the input fields work with numbers.
-        (newVal > 0 ?
-          newUserData.invoices[invoiceIdx].amountBilled = parseFloat(newVal) :
-          newUserData.invoices[invoiceIdx].amountBilled = 0);
+        ((isNaN(parseFloat(newVal)) || parseFloat(newVal) < 0) ?
+          newUserData.invoices[invoiceIdx].amountBilled = 0 :
+          newUserData.invoices[invoiceIdx].amountBilled = parseFloat(newVal)
+        );
+        overwriteState();
         break;
 
       case "balanceDue": // need to change this to a floating # because of the way the input fields work with numbers.
-        (newVal > 0 ?
-          newUserData.invoices[invoiceIdx].balanceDue = parseFloat(newVal) :
-          newUserData.invoices[invoiceIdx].balanceDue = 0);
+        ((isNaN(parseFloat(newVal)) || parseFloat(newVal) < 0) ?
+          newUserData.invoices[invoiceIdx].balanceDue = 0 :
+          newUserData.invoices[invoiceIdx].balanceDue = parseFloat(newVal)
+        );
+        overwriteState();
         break;
 
       default:
         console.warn("something went wrong... selected target input:");
         console.warn(targetID);
     }
-
-    this.setState({
-      userData: newUserData
-    });
   };
 
 

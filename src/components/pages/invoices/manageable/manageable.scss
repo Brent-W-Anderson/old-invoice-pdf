@@ -107,6 +107,7 @@
   }
 
   .invoice {
+    margin: 0 10px;
     background-color: white;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3),
                 inset 2px 2px 8px rgba(0, 0, 0, 0.2),
@@ -126,7 +127,7 @@
       border: 2px solid #888;
       border-top: 0px solid white;
       border-radius: 0 0 5px 5px;
-      padding: 10px 20px;
+      padding: 10px 20px 20px 20px;
 
       .items {
         user-select: none;
@@ -141,10 +142,7 @@
         }
 
         h2 {
-          text-align: left;
-          padding-left: 20px;
-          width: 100%;
-          margin: 10px;
+          margin: 0;
         }
 
         .item {
@@ -152,20 +150,83 @@
           text-align: center;
           padding: 10px 0;
 
+          #invoiceName {
+            padding: 10px;
+            font-size: 20px;
+            color: #888;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            font-weight: bold;
+            box-shadow: 0 0 2px #aaa;
+            border-top: 1px solid transparent;
+            transition: 0s;
+
+            &:focus {
+              border-color: transparent;
+              border-top: 1px solid deepskyblue;
+              box-shadow: 0 0 3px #111;
+              transition: 0s;
+            }
+          }
+
           &.text {
-            padding: 0;
+            padding: 5px;
+          }
+
+          &.invoiceName {
+            padding: 20px 0;
           }
 
           .label {
             display: inline-block;
             text-align: left;
-            width: 25%;
+            width: 120px;
           }
 
           input {
-            width: calc(55% - 10px);
+            box-sizing: border-box;
+            background-color: white;
+            border-top: 1px solid transparent;
+            box-shadow: 0 0 2px #aaa;
+            padding: 5px;
+            width: 250px;
             margin: 0;
             text-align: left;
+            transition: 0s;
+
+            &[type=date], &[type=number], &[type=email] {
+              margin: 0;
+              border-radius: 5px;
+              border: 0;
+              border-top: 1px solid transparent;
+            }
+
+            &:focus {
+              border-color: transparent;
+              border-top: 1px solid deepskyblue;
+              box-shadow: 0 0 3px #888;
+              transition: 0s;
+            }
+          }
+
+          .email-warning {
+            float: right;
+
+            .warning-icon {
+              display: none;
+              position: absolute;
+              line-height: 26px;
+              color: white;
+              background-color: rgba(red, .8);
+              border-radius: 0 5px 5px 0;
+              margin-left: -64px;
+              width: 20px;
+              height: 26px;
+
+              &.show {
+                display: block;
+              }
+            }
           }
         }
       }
