@@ -85,8 +85,9 @@
   margin-left: 10px;
   margin-right: 10px;
   max-width: 1000px;
-  background-color: white;
   border: 2px solid #888;
+  border-top: 1px solid #888;
+  background-color: white;
   border-radius: 5px 5px 5px 40px;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
   .invoices .invoice-list table {
@@ -101,7 +102,12 @@
         background-color: #555; }
         .invoices .invoice-list table tr.headers th {
           color: white;
-          letter-spacing: 1px; }
+          letter-spacing: 1px;
+          border-top: 1px solid #888; }
+          .invoices .invoice-list table tr.headers th:nth-child(1) {
+            border-radius: 5px 0 0 0; }
+          .invoices .invoice-list table tr.headers th:nth-child(4) {
+            border-radius: 0 5px 0 0; }
       .invoices .invoice-list table tr.invoice-line .delete-container {
         display: inline-block;
         float: right; }

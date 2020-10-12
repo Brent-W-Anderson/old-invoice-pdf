@@ -127,7 +127,7 @@ export default class Invoices extends React.Component {
           {this.state.activeButton === "paid" ? "Total:" : "Balance Due:"}
         </td>
 
-        <td className={this.state.activeButton === "paid" ? "green" : "red"}>
+        <td className={`no-border ${this.state.activeButton === "paid" ? "green" : "red"}`}>
           ${this.state.activeButton === "paid" ? (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") :
           balanceDue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </td>
