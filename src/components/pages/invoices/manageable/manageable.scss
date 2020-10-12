@@ -109,22 +109,14 @@
   .invoice {
     margin: 0 10px;
     background-color: white;
+    border-radius: 5px;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3),
                 inset 2px 2px 8px rgba(0, 0, 0, 0.2),
                 inset -2px -2px 8px rgba(0, 0, 0, 0.2);
 
-    .topper {
-      box-sizing: border-box;
-      background-color: deepskyblue;
-      border-radius: 3px 3px 0 0;
-      height: 5px;
-      width: 100%;
-    }
-
     .item-list {
       overflow: hidden;
       border-top: 0px solid white;
-      border-radius: 0 0 5px 5px;
       padding: 10px 20px 20px 20px;
 
       .items {
@@ -141,6 +133,11 @@
 
         h2 {
           margin: 0;
+        }
+
+        hr {
+          margin: 25px 0;
+          border-top: 1px solid #ccc;
         }
 
         .item {
@@ -192,7 +189,11 @@
             text-align: left;
             transition: 0s;
 
-            &[type=date], &[type=number], &[type=email] {
+            &::placeholder {
+              color: #ccc;
+            }
+
+            &[type=date], &[type=number], &[type=email], &[type=tel] {
               margin: 0;
               border-radius: 5px;
               border: 0;
@@ -211,18 +212,58 @@
             float: right;
 
             .warning-icon {
+              cursor: help;
               display: none;
               position: absolute;
               line-height: 26px;
               color: white;
+              box-shadow: inset 0 0 5px white;
               background-color: rgba(red, .8);
               border-radius: 0 5px 5px 0;
               margin-left: -64px;
               width: 20px;
               height: 26px;
+              transition: .2s;
 
               &.show {
                 display: block;
+
+                .note {
+                  display: none;
+                  border: 2px solid #222;
+                  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+                  background-color: rgba(black, .7);
+                  text-align: left;
+                  padding: 5px 10px;
+                  border-radius: 3px 3px 0 10px;
+                  width: 300px;
+                  color: white;
+                  margin-top: -104px;
+                  margin-left: -319px;
+
+                  .note-accent {
+                    position: absolute;
+                    margin-top: 5px;
+                    right: 15px;
+                    border-left: 15px solid transparent;
+                    border-right: 0 solid transparent;
+                    border-top: 10px solid #222;
+                  }
+
+                  span {
+                    font-weight: bold;
+                    color: red;
+                  }
+                }
+
+                &:hover {
+                  background-color: rgba(red, .6);
+                  transition: .2s;
+
+                  .note {
+                    display: block;
+                  }
+                }
               }
             }
           }

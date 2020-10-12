@@ -15,12 +15,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false, // set to true to bypass logging in.
+    loggedIn: true, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
+    activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view", // dont change this unless you want to start with a specific manageable invoice.
-    userData: {}, // set to the specific array index from the users if looking for some sample data.
+    userData: UsersJSON[0], // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -143,6 +143,26 @@ export default class App extends React.Component {
         newUserData.invoices[invoiceIdx].toEmail = newVal;
         overwriteState();
         break;
+
+      case "billToStreet":
+        newUserData.invoices[invoiceIdx].toAddress.street = newVal;
+        overwriteState();
+        break;
+
+      case "billToCityState":
+        newUserData.invoices[invoiceIdx].toAddress.cityState = newVal;
+        overwriteState();
+        break;
+
+      case "billToZip":
+          newUserData.invoices[invoiceIdx].toAddress.zip = newVal;
+          overwriteState();
+          break;
+
+      case "billToPhone":
+          newUserData.invoices[invoiceIdx].toPhone = newVal;
+          overwriteState();
+          break;
 
       case "fromName":
         newUserData.invoices[invoiceIdx].fromName = newVal;

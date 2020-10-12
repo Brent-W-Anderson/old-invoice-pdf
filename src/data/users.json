@@ -31,14 +31,21 @@
         "invoiceName": "Invoice #1",
         "clientID": "1",
         "fromName": "The King",
-        "toName": "Google",
-        "toEmail": "testing@email.com",
-        "address": {
+        "fromEmail": "",
+        "fromAddress": {
           "street": "",
           "cityState": "",
           "zip": ""
         },
-        "toPhone": "",
+        "fromPhone": "",
+        "toName": "Google",
+        "toEmail": "testing@email.com",
+        "toAddress": {
+          "street": "123 apple ln.",
+          "cityState": "Los Angeles, CA",
+          "zip": "90001"
+        },
+        "toPhone": "(123) 456-7890",
         "date": "2020-09-10",
         "amountBilled": 950.0,
         "balanceDue": 0
@@ -48,9 +55,16 @@
         "invoiceName": "Invoice #1",
         "clientID": "2",
         "fromName": "The King",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
         "toName": "Amazon",
         "toEmail": "invalidEmail.address",
-        "address": {
+        "toAddress": {
           "street": "",
           "cityState": "",
           "zip": ""
@@ -65,9 +79,16 @@
         "invoiceName": "Invoice #2",
         "clientID": "1",
         "fromName": "The King",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
         "toName": "Google",
         "toEmail": "",
-        "address": {
+        "toAddress": {
           "street": "",
           "cityState": "",
           "zip": ""
@@ -82,9 +103,16 @@
         "invoiceName": "Invoice #3",
         "clientID": "1",
         "fromName": "The King",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
         "toName": "Google",
         "toEmail": "",
-        "address": {
+        "toAddress": {
           "street": "",
           "cityState": "",
           "zip": ""
@@ -99,9 +127,16 @@
         "invoiceName": "Invoice #2",
         "clientID": "2",
         "fromName": "The King",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
         "toName": "Amazon",
         "toEmail": "",
-        "address": {
+        "toAddress": {
           "street": "",
           "cityState": "",
           "zip": ""
@@ -116,9 +151,16 @@
         "invoiceName": "Invoice #4",
         "clientID": "1",
         "fromName": "The King",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
         "toName": "Google",
         "toEmail": "",
-        "address": {
+        "toAddress": {
           "street": "",
           "cityState": "",
           "zip": ""

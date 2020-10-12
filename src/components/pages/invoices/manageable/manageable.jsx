@@ -11,7 +11,8 @@ export default class Manageable extends React.Component {
         return re.test(String(email).toLowerCase());
       };
 
-      if(validateEmail(app.props.userData.invoices[app.props.invoiceIdx].toEmail)) {
+      const email = app.props.userData.invoices[app.props.invoiceIdx].toEmail;
+      if(validateEmail(email) || email.length === 0) {
         return ""
       };
 
@@ -46,7 +47,7 @@ export default class Manageable extends React.Component {
           return re.test(String(email).toLowerCase());
         };
 
-        if(validateEmail(newVal)) {
+        if(validateEmail(newVal) || newVal.length === 0) {
           overwriteState(newVal, "");
           modifyInvoice(userData, invoiceIdx, clientIdx, "billToEmail", newVal)();
         }else {
@@ -85,17 +86,18 @@ export default class Manageable extends React.Component {
         </div>
 
         <div className="invoice">
-          <div className="topper"></div>
-
           <form action="#" className="item-list">
+
             <div className="items">
               <div className="item invoiceName">
-                <input type="text" id="invoiceName" value={invoice.invoiceName} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+                <input type="text" id="invoiceName" placeholder="Invoice #" value={invoice.invoiceName} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
                 <div className="label">
                   <label htmlFor="invoiceName"/>
                 </div>
               </div>
             </div>
+
+
 
             <div className="items left">
               <div className="item">
@@ -113,6 +115,43 @@ export default class Manageable extends React.Component {
                 </div>
                 <input type="text" id="fromName" value={invoice.fromName} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
               </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="fromEmail"> Email </label>
+                </div>
+                <input type="text" id="fromEmail" value={invoice.fromEmail} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="fromStreet"> Address </label>
+                </div>
+                <input type="text" id="fromStreet" placeholder="Street" value={invoice.fromAddress.street} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="fromCityState" />
+                </div>
+                <input type="text" id="fromCityState" placeholder="City, State" value={invoice.fromAddress.cityState} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="fromZip" />
+                </div>
+                <input type="text" id="fromZip" placeholder="Zip" value={invoice.fromAddress.zip} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="fromPhone"> Phone </label>
+                </div>
+                <input type="tel" id="fromPhone" value={invoice.fromPhone} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <hr style={{width: "200%"}} />
 
               <div className="item text">
                 <div className="label">
@@ -135,6 +174,8 @@ export default class Manageable extends React.Component {
                 <input type="number" id="balanceDue" value={invoice.balanceDue} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
               </div>
             </div>
+
+
 
             <div className="items right">
               <div className="item">
@@ -159,12 +200,46 @@ export default class Manageable extends React.Component {
                 </div>
                 <input type="email" id="billToEmail" value={this.state.toEmail} onChange={this.modifyInvoice(userData, invoiceIdx, clientIdx, modifyInvoice)} />
                 <div className="email-warning">
-                  <div className={`warning-icon${this.state.emailWarning}`}> ! </div>
+                  <div className={`warning-icon${this.state.emailWarning}`}> !
+                    <div className="note"> <span>Warning:</span> Invalid email address formatting, make sure this is what you intended.
+                      <div className="note-accent"></div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="billToStreet"> Address </label>
+                </div>
+                <input type="text" id="billToStreet" placeholder="Street" value={invoice.toAddress.street} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="billToCityState" />
+                </div>
+                <input type="text" id="billToCityState" placeholder="City, State" value={invoice.toAddress.cityState} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="billToZip" />
+                </div>
+                <input type="text" id="billToZip" placeholder="Zip" value={invoice.toAddress.zip} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
+              </div>
+
+              <div className="item text">
+                <div className="label">
+                  <label htmlFor="billToPhone"> Phone </label>
+                </div>
+                <input type="tel" id="billToPhone" value={invoice.toPhone} onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
               </div>
             </div>
           </form>
         </div>
+
+
 
         <div className="utility-bar">
           <div className="button back" onClick={setActiveModeView}> Back </div>
