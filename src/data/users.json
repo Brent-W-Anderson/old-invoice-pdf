@@ -32,8 +32,8 @@
         },
         "toPhone": "",
         "date": "",
-        "amountBilled": 0,
-        "balanceDue": 0
+        "amountBilled": null,
+        "balanceDue": null
       }
     ]
   },

@@ -110,7 +110,8 @@
             border-radius: 0 5px 0 0; }
       .invoices .invoice-list table tr.invoice-line .delete-container {
         display: inline-block;
-        float: right; }
+        float: right;
+        height: 16px; }
         .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn {
           cursor: pointer;
           display: none;

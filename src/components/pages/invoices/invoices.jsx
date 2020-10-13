@@ -32,13 +32,17 @@ export default class Invoices extends React.Component {
   showAmountBilled = (invoice) => { // which amount to show, based on which button is toggled.
     if(this.state.activeButton === "paid") {
       if(invoice.balanceDue === 0) {
-        return invoice.amountBilled;
+        return "$" + invoice.amountBilled;
       }else {
-        return invoice.amountBilled - invoice.balanceDue;
+        return "$" + (invoice.amountBilled - invoice.balanceDue);
       }
     }
 
-    return invoice.balanceDue;
+    if(invoice.balanceDue === null || invoice.amountBilled === null) {
+      return null;
+    }
+
+    return "$" + invoice.balanceDue;
   }
 
 
@@ -66,13 +70,21 @@ export default class Invoices extends React.Component {
 
 
   createList = (invoice, idx) => { // shows a list item.
+    function checkForNullBalance(app) {
+      if(invoice.balanceDue !== null && invoice.amountBilled !== null) {
+        return app.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      return "";
+    }
+
     return(
       <tr key={idx} className="invoice-line" onClick={this.saveSelectedInvoice(invoice)}>
         <td> {`INV ${(new Array(4).join('0') + invoice.invoiceID).slice(-4)}`} </td>
         <td> {invoice.toName} </td>
         <td> {Moment(invoice.date).format('MMM DD, YYYY')} </td>
         <td className={this.checkBalance(invoice)}>
-          {`$${this.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+          {`${checkForNullBalance(this)}`}
           <div className="delete-container">
             <div onClick={this.deleteInvoice(invoice, idx)} className="delete-btn"> X </div>
           </div>
@@ -119,6 +131,14 @@ export default class Invoices extends React.Component {
       };
     }
 
+    function checkBtnState(btn) {
+      if(btn === "unpaid" || btn ==="allInvoices") {
+        return balanceDue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      };
+
+      return (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
     return(
       <tr className="totals">
         <td className="no-border"></td>
@@ -128,8 +148,7 @@ export default class Invoices extends React.Component {
         </td>
 
         <td className={`no-border ${this.state.activeButton === "paid" ? "green" : "red"}`}>
-          {this.state.activeButton === "paid" ? (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") :
-          balanceDue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          {`$${checkBtnState(this.state.activeButton)}`}
         </td>
       </tr>
     );
