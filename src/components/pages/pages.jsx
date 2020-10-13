@@ -39,7 +39,8 @@ export default class Pages extends React.Component {
 
 
   buildPage = (pageName, pageData) => {
-    const { userData, invoiceMode, setActiveModeView, setActiveModeEdit, createInvoice, modifyInvoice, deleteInvoice } = this.props;
+    const { userData, invoiceMode, setActiveModeView, setActiveModeEdit, createInvoice, modifyInvoice,
+            deleteInvoice, selectedInvoiceID } = this.props;
 
     switch(pageName) {
       case "invoices":

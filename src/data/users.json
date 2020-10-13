@@ -33,7 +33,17 @@
         "toPhone": "",
         "date": "",
         "amountBilled": null,
-        "balanceDue": null
+        "balanceDue": null,
+        "items": [
+          {
+            "description": "",
+            "rate": null,
+            "qty": null,
+            "amount": null,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       }
     ]
   },
@@ -86,7 +96,17 @@
         "toPhone": "(123) 456-7890",
         "date": "2020-09-10",
         "amountBilled": 950.0,
-        "balanceDue": 0
+        "balanceDue": 0,
+        "items": [
+          {
+            "description": "",
+            "rate": 40,
+            "qty": 5,
+            "amount": 200,
+            "tax": false,
+            "additionalDetails": "Some random additional details for filler text here.."
+          }
+        ]
       },
       {
         "invoiceID": "2",
@@ -110,7 +130,17 @@
         "toPhone": "",
         "date": "2020-09-15",
         "amountBilled": 1120.49,
-        "balanceDue": 0
+        "balanceDue": 0,
+        "items": [
+          {
+            "description": "",
+            "rate": 0.00,
+            "qty": 0,
+            "amount": 0,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       },
       {
         "invoiceID": "3",
@@ -134,7 +164,17 @@
         "toPhone": "",
         "date": "2020-10-03",
         "amountBilled": 1160.25,
-        "balanceDue": 1160.25
+        "balanceDue": 1160.25,
+        "items": [
+          {
+            "description": "",
+            "rate": 0.00,
+            "qty": 0,
+            "amount": 0,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       },
       {
         "invoiceID": "4",
@@ -158,7 +198,17 @@
         "toPhone": "",
         "date": "2020-10-17",
         "amountBilled": 1250.94,
-        "balanceDue": 750.94
+        "balanceDue": 750.94,
+        "items": [
+          {
+            "description": "",
+            "rate": 0.00,
+            "qty": 0,
+            "amount": 0,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       },
       {
         "invoiceID": "5",
@@ -182,7 +232,17 @@
         "toPhone": "",
         "date": "2020-11-01",
         "amountBilled": 1097.34,
-        "balanceDue": 297.34
+        "balanceDue": 297.34,
+        "items": [
+          {
+            "description": "",
+            "rate": 0.00,
+            "qty": 0,
+            "amount": 0,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       },
       {
         "invoiceID": "6",
@@ -206,16 +266,18 @@
         "toPhone": "",
         "date": "2020-11-16",
         "amountBilled": 1422.27,
-        "balanceDue": 422.27
+        "balanceDue": 422.27,
+        "items": [
+          {
+            "description": "",
+            "rate": 0.00,
+            "qty": 0,
+            "amount": 0,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       }
     ]
-  },
-  {
-    "userID": "2",
-    "user": "user",
-    "pass": "pass",
-    "personalInfo": {
-      "name": "The Peasant"
-    }
   }
 ]

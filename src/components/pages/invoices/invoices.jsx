@@ -156,9 +156,15 @@ export default class Invoices extends React.Component {
 
 
   createNewInvoice = idx => () => {
-    const { createInvoice } =this.props;
+    const { createInvoice, setActiveModeEdit } = this.props;
 
     createInvoice(idx);
+
+    this.setState({
+      selectedInvoiceID: idx
+    });
+
+    setActiveModeEdit();
   }
 
 

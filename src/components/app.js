@@ -27,19 +27,9 @@ export default class App extends React.Component {
   };
 
   setActiveModeView = (clicked) => { // view all of the invoices
-    const app = this;
-
-    if(clicked === "invoices") {
-      app.setState({
-        invoiceMode: "view"
-      });
-    }else {
-      setTimeout(function () {
-        app.setState({
-          invoiceMode: "view"
-        });
-      }, 250);
-    }
+    this.setState({
+      invoiceMode: "view"
+    });
   }
 
   setActiveModeEdit = () => { // view a specific manageable/ editable invoice
@@ -111,11 +101,11 @@ export default class App extends React.Component {
             ...UsersJSON[0].invoices[0],
             invoiceID: idx + 1,
             date: Moment(new Date()).format("YYYY-MM-DD")
-          },
-        ],
-      },
+          }
+        ]
+      }
     }));
-  }
+  };
 
 
   modifyInvoice = (userData, invoiceIdx, clientIdx, otherInputSelected, otherData) => (inputSelected) => { // editing specific invoice data and storing it back in state
