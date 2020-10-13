@@ -121,7 +121,8 @@
           display: none;
           position: absolute;
           text-shadow: 0 0 2px white;
-          border: 1px solid white;
+          border: 1px solid #888;
+          border-radius: 2px;
           margin-top: -8px;
           margin-left: -19px;
           height: 33px;
@@ -129,8 +130,10 @@
           line-height: 33px;
           background-color: #555;
           color: white; }
-          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
+          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:hover {
             background-color: #666; }
+          .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
+            background-color: #777; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }
         .invoices .invoice-list table tr:hover.invoice-line .delete-container .delete-btn {

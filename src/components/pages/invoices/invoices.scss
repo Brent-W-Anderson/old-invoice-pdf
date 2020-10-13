@@ -55,7 +55,8 @@
               display: none;
               position: absolute;
               text-shadow: 0 0 2px white;
-              border: 1px solid white;
+              border: 1px solid #888;
+              border-radius: 2px;
               margin-top: -8px;
               margin-left: -19px;
               height: 33px;
@@ -64,8 +65,12 @@
               background-color: #555;
               color: white;
 
-              &:active {
+              &:hover {
                 background-color: #666;
+              }
+
+              &:active {
+                background-color: #777;
               }
             }
           }
