@@ -117,20 +117,20 @@
         height: 16px; }
         .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn {
           cursor: pointer;
+          box-sizing: border-box;
           display: none;
           position: absolute;
           text-shadow: 0 0 2px white;
-          box-shadow: inset 0 0 3px white;
+          border: 1px solid white;
           margin-top: -8px;
-          margin-left: -17px;
+          margin-left: -19px;
           height: 33px;
           padding: 0 10px;
           line-height: 33px;
           background-color: #555;
-          color: red; }
+          color: white; }
           .invoices .invoice-list table tr.invoice-line .delete-container .delete-btn:active {
-            background-color: #666;
-            color: red; }
+            background-color: #666; }
       .invoices .invoice-list table tr:hover.invoice-line {
         background-color: rgba(161, 196, 253, 0.5); }
         .invoices .invoice-list table tr:hover.invoice-line .delete-container .delete-btn {
