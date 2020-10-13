@@ -128,7 +128,7 @@ export default class Invoices extends React.Component {
         </td>
 
         <td className={`no-border ${this.state.activeButton === "paid" ? "green" : "red"}`}>
-          ${this.state.activeButton === "paid" ? (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") :
+          {this.state.activeButton === "paid" ? (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") :
           balanceDue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </td>
       </tr>
@@ -136,11 +136,18 @@ export default class Invoices extends React.Component {
   };
 
 
+  createNewInvoice = (idx) => () => {
+    const { createInvoice } =this.props;
+
+    createInvoice(idx);
+  }
+
+
   render() {
     const { pageData, userData, invoiceMode } = this.props;
     const invoice = this.state;
 
-    if(invoiceMode === "view") { // toggles mode for EDITING the selected invoice vs VIEWING all invoices.
+    if(invoiceMode === "view") { // Show all of the invoices
       return (
         <div className="invoices">
           <div className="utility-bar">
@@ -159,7 +166,7 @@ export default class Invoices extends React.Component {
               onMouseDown={this.handleActiveBtn("paid")}
             > Paid </div>
 
-            <div className="button new-inv"> New Invoice + </div>
+            <div className="button new-inv" onClick={this.createNewInvoice(userData.invoices.length)}> New Invoice + </div>
           </div>
 
           <div className="invoice-list">
@@ -192,7 +199,7 @@ export default class Invoices extends React.Component {
       );
     }
 
-    if(invoiceMode === "edit") { // for viewing selected invoices (possible added functionality for editing them too).
+    if(invoiceMode === "edit") { // If an invoice is selected, switch to a manageable view
       return (
         <div className="edit-invoice">
           {

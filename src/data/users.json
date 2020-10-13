@@ -1,5 +1,43 @@
 [
   {
+    "userID": "0",
+    "user": "template",
+    "pass": "",
+    "personalInfo": {
+      "name": "",
+      "address": "",
+      "email": "",
+      "phone": ""
+    },
+    "clients": [],
+    "invoices": [
+      {
+        "invoiceID": "",
+        "invoiceName": "",
+        "clientID": "",
+        "fromName": "",
+        "fromEmail": "",
+        "fromAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "fromPhone": "",
+        "toName": "",
+        "toEmail": "",
+        "toAddress": {
+          "street": "",
+          "cityState": "",
+          "zip": ""
+        },
+        "toPhone": "",
+        "date": "",
+        "amountBilled": 0,
+        "balanceDue": 0
+      }
+    ]
+  },
+  {
     "userID": "1",
     "user": "admin",
     "pass": "pass",
@@ -31,7 +69,7 @@
         "invoiceName": "Invoice #1",
         "clientID": "1",
         "fromName": "The King",
-        "fromEmail": "",
+        "fromEmail": "testingInvalid.fdsa",
         "fromAddress": {
           "street": "",
           "cityState": "",

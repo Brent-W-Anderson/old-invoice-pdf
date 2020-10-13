@@ -75,8 +75,7 @@
 .manageable .invoice {
   margin: 0 10px;
   background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3), inset 2px 2px 8px rgba(0, 0, 0, 0.2), inset -2px -2px 8px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3), inset 2px 0 2px rgba(0, 0, 0, 0.2), inset -2px 0 2px rgba(0, 0, 0, 0.2); }
   .manageable .invoice .item-list {
     overflow: hidden;
     border-top: 0px solid white;
@@ -84,6 +83,9 @@
     .manageable .invoice .item-list .items {
       user-select: none;
       width: 50%; }
+      .manageable .invoice .item-list .items.full-width {
+        float: left;
+        width: 100%; }
       .manageable .invoice .item-list .items.left {
         float: left; }
       .manageable .invoice .item-list .items.right {
@@ -91,8 +93,44 @@
       .manageable .invoice .item-list .items h2 {
         margin: 0; }
       .manageable .invoice .item-list .items hr {
-        margin: 25px 0;
-        border-top: 1px solid #ccc; }
+        margin: 5px 50px;
+        border-top: 1px solid #888; }
+        .manageable .invoice .item-list .items hr.left {
+          margin: 25px 50px;
+          border-top: 1px solid #ccc;
+          width: calc(200% - 100px); }
+      .manageable .invoice .item-list .items table {
+        width: calc(100% - 110px);
+        margin: 0 50px; }
+        .manageable .invoice .item-list .items table th, .manageable .invoice .item-list .items table td {
+          font-size: 13px;
+          text-align: right;
+          padding: 0; }
+          .manageable .invoice .item-list .items table th.left, .manageable .invoice .item-list .items table td.left {
+            text-align: left; }
+        .manageable .invoice .item-list .items table textarea {
+          font-family: Roboto;
+          font-size: 16px;
+          box-sizing: border-box;
+          resize: none;
+          background-color: white;
+          border: 0;
+          border-bottom: 1px solid transparent;
+          box-shadow: 0 0 2px #aaa;
+          padding: 5px;
+          width: 100%;
+          height: 62px; }
+          .manageable .invoice .item-list .items table textarea::placeholder {
+            font-family: Roboto;
+            font-size: 16px;
+            color: #ccc; }
+          .manageable .invoice .item-list .items table textarea:focus {
+            border-color: transparent;
+            border-bottom: 1px solid deepskyblue;
+            box-shadow: 0 0 3px #888;
+            transition: 0s; }
+            .manageable .invoice .item-list .items table textarea:focus::placeholder {
+              color: #aaa; }
       .manageable .invoice .item-list .items .item {
         box-sizing: border-box;
         text-align: center;
@@ -105,11 +143,11 @@
           word-spacing: 2px;
           font-weight: bold;
           box-shadow: 0 0 2px #aaa;
-          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
           transition: 0s; }
           .manageable .invoice .item-list .items .item #invoiceName:focus {
             border-color: transparent;
-            border-top: 1px solid deepskyblue;
+            border-bottom: 1px solid deepskyblue;
             box-shadow: 0 0 3px #111;
             transition: 0s; }
         .manageable .invoice .item-list .items .item.text {
@@ -120,42 +158,59 @@
           display: inline-block;
           text-align: left;
           width: 120px; }
+        .manageable .invoice .item-list .items .item input[type=number]::-webkit-outer-spin-button, .manageable .invoice .item-list .items .item input[type=number]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0; }
         .manageable .invoice .item-list .items .item input {
           box-sizing: border-box;
           background-color: white;
-          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
           box-shadow: 0 0 2px #aaa;
           padding: 5px;
           width: 250px;
           margin: 0;
           text-align: left;
           transition: 0s; }
-          .manageable .invoice .item-list .items .item input::placeholder {
-            color: #ccc; }
           .manageable .invoice .item-list .items .item input[type=date], .manageable .invoice .item-list .items .item input[type=number], .manageable .invoice .item-list .items .item input[type=email], .manageable .invoice .item-list .items .item input[type=tel] {
+            font-family: Roboto;
+            font-size: 16px;
             margin: 0;
             border-radius: 5px;
             border: 0;
-            border-top: 1px solid transparent; }
+            border-bottom: 1px solid transparent; }
+          .manageable .invoice .item-list .items .item input.full-width {
+            width: calc(100% - 10px);
+            margin: 0;
+            margin-left: 10px;
+            text-align: right; }
+            .manageable .invoice .item-list .items .item input.full-width.left {
+              width: 100%;
+              margin: 0;
+              margin-left: 0;
+              text-align: left; }
+          .manageable .invoice .item-list .items .item input::placeholder {
+            color: #ccc; }
           .manageable .invoice .item-list .items .item input:focus {
             border-color: transparent;
-            border-top: 1px solid deepskyblue;
+            border-bottom: 1px solid deepskyblue;
             box-shadow: 0 0 3px #888;
             transition: 0s; }
+            .manageable .invoice .item-list .items .item input:focus::placeholder {
+              color: #aaa; }
         .manageable .invoice .item-list .items .item .email-warning {
           float: right; }
           .manageable .invoice .item-list .items .item .email-warning .warning-icon {
             cursor: help;
             display: none;
             position: absolute;
-            line-height: 26px;
+            line-height: 30px;
             color: white;
             box-shadow: inset 0 0 5px white;
             background-color: rgba(255, 0, 0, 0.8);
             border-radius: 0 5px 5px 0;
             margin-left: -64px;
             width: 20px;
-            height: 26px;
+            height: 30px;
             transition: .2s; }
             .manageable .invoice .item-list .items .item .email-warning .warning-icon.show {
               display: block; }

@@ -20,7 +20,7 @@ export default class App extends React.Component {
     activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view", // dont change this unless you want to start with a specific manageable invoice.
-    userData: UsersJSON[0], // set to the specific array index from the users if looking for some sample data.
+    userData: UsersJSON[1], // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -100,6 +100,19 @@ export default class App extends React.Component {
   };
 
 
+  createInvoice = idx => {
+    let newUserData = this.state.userData;
+    let template = UsersJSON[0].invoices[0];
+
+    template.invoiceID = idx + 1;
+    newUserData.invoices.push(template);
+
+    this.setState({
+      userData: newUserData
+    });
+  }
+
+
   modifyInvoice = (userData, invoiceIdx, clientIdx, otherInputSelected, otherData) => (inputSelected) => { // editing specific invoice data and storing it back in state
     const app = this;
     let targetID, newVal;
@@ -110,6 +123,11 @@ export default class App extends React.Component {
     }else {
       switch(otherInputSelected) {
         case "billToEmail":
+          targetID = otherInputSelected;
+          newVal = otherData;
+          break;
+
+        case "fromEmail":
           targetID = otherInputSelected;
           newVal = otherData;
           break;
@@ -132,14 +150,14 @@ export default class App extends React.Component {
         overwriteState();
         break;
 
+      // BILL TO
+
       case "billToName":
         newUserData.invoices[invoiceIdx].toName = newVal;
         overwriteState();
         break;
 
       case "billToEmail":
-        console.log("successfully wrote email to user database state");
-        console.log(newVal);
         newUserData.invoices[invoiceIdx].toEmail = newVal;
         overwriteState();
         break;
@@ -155,38 +173,51 @@ export default class App extends React.Component {
         break;
 
       case "billToZip":
-          newUserData.invoices[invoiceIdx].toAddress.zip = newVal;
-          overwriteState();
-          break;
+        newUserData.invoices[invoiceIdx].toAddress.zip = newVal;
+        overwriteState();
+        break;
 
       case "billToPhone":
-          newUserData.invoices[invoiceIdx].toPhone = newVal;
-          overwriteState();
-          break;
+        newUserData.invoices[invoiceIdx].toPhone = newVal;
+        overwriteState();
+        break;
+
+      // FROM
 
       case "fromName":
         newUserData.invoices[invoiceIdx].fromName = newVal;
         overwriteState();
         break;
 
+      case "fromEmail":
+        newUserData.invoices[invoiceIdx].fromEmail = newVal;
+        overwriteState();
+        break;
+
+      case "fromStreet":
+        newUserData.invoices[invoiceIdx].fromAddress.street = newVal;
+        overwriteState();
+        break;
+
+      case "fromCityState":
+        newUserData.invoices[invoiceIdx].fromAddress.cityState = newVal;
+        overwriteState();
+        break;
+
+      case "fromZip":
+        newUserData.invoices[invoiceIdx].fromAddress.zip = newVal;
+        overwriteState();
+        break;
+
+      case "fromPhone":
+        newUserData.invoices[invoiceIdx].fromPhone = newVal;
+        overwriteState();
+        break;
+
+      // DETAILS
+
       case "date":
         newUserData.invoices[invoiceIdx].date = newVal;
-        overwriteState();
-        break;
-
-      case "amountBilled": // need to change this to a floating # because of the way the input fields work with numbers.
-        ((isNaN(parseFloat(newVal)) || parseFloat(newVal) < 0) ?
-          newUserData.invoices[invoiceIdx].amountBilled = 0 :
-          newUserData.invoices[invoiceIdx].amountBilled = parseFloat(newVal)
-        );
-        overwriteState();
-        break;
-
-      case "balanceDue": // need to change this to a floating # because of the way the input fields work with numbers.
-        ((isNaN(parseFloat(newVal)) || parseFloat(newVal) < 0) ?
-          newUserData.invoices[invoiceIdx].balanceDue = 0 :
-          newUserData.invoices[invoiceIdx].balanceDue = parseFloat(newVal)
-        );
         overwriteState();
         break;
 
@@ -232,6 +263,7 @@ export default class App extends React.Component {
             appData={app.appData}
             transitionOut={app.transitionOut}
             userData={app.userData}
+            createInvoice={this.createInvoice}
             modifyInvoice={this.modifyInvoice}
             deleteInvoice={this.deleteInvoice}
           />

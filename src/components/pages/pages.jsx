@@ -39,7 +39,7 @@ export default class Pages extends React.Component {
 
 
   buildPage = (pageName, pageData) => {
-    const { userData, invoiceMode, setActiveModeView, setActiveModeEdit, modifyInvoice, deleteInvoice } = this.props;
+    const { userData, invoiceMode, setActiveModeView, setActiveModeEdit, createInvoice, modifyInvoice, deleteInvoice } = this.props;
 
     switch(pageName) {
       case "invoices":
@@ -50,6 +50,7 @@ export default class Pages extends React.Component {
             invoiceMode={invoiceMode}
             pageData={pageData}
             userData={userData}
+            createInvoice={createInvoice}
             modifyInvoice={modifyInvoice}
             deleteInvoice={deleteInvoice}
           />
