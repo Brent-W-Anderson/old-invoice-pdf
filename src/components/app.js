@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 
 //components
 import LoginSignUp from './login-signup/login-signup';
@@ -101,15 +102,19 @@ export default class App extends React.Component {
 
 
   createInvoice = idx => {
-    let newUserData = this.state.userData;
-    let template = UsersJSON[0].invoices[0];
-
-    template.invoiceID = idx + 1;
-    newUserData.invoices.push(template);
-
-    this.setState({
-      userData: newUserData
-    });
+    this.setState(prevState => ({
+      userData: {
+        ...prevState.userData,
+        invoices: [
+          ...prevState.userData.invoices,
+          {
+            ...UsersJSON[0].invoices[0],
+            invoiceID: idx + 1,
+            date: Moment(new Date()).format("YYYY-MM-DD")
+          },
+        ],
+      },
+    }));
   }
 
 

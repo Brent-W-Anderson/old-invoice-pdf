@@ -136,7 +136,7 @@ export default class Invoices extends React.Component {
   };
 
 
-  createNewInvoice = (idx) => () => {
+  createNewInvoice = idx => () => {
     const { createInvoice } =this.props;
 
     createInvoice(idx);
