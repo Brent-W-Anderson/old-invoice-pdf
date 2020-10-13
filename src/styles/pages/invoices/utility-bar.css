@@ -19,17 +19,20 @@
       float: right;
       color: white;
       border: 1px solid #bbb;
-      background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+      background-color: #555;
+      background-image: none;
       transition: .2s ease-in-out; }
       .utility-bar .button.new-inv:hover {
         transform: scale(1.02);
-        background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+        background-color: #666;
+        background-image: none;
         border: 1px solid #bbb;
         text-shadow: 0 0 1px white;
         transition: .2s ease-in-out; }
       .utility-bar .button.new-inv:active {
         transform: scale(0.98);
-        background-image: linear-gradient(to bottom, #ddd 0%, #ddd 8%, #666 40%, #666 100%);
+        background-color: #555;
+        background-image: none;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         height: 20px;
         border: 1px solid #bbb;
