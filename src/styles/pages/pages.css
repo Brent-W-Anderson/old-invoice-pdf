@@ -1,12 +1,25 @@
 .pages {
   position: absolute;
+  overflow-y: auto;
   width: 100%;
+  height: calc(100% - 50px);
   left: 0;
   top: 50px;
   animation-name: pagesFadeIn;
   animation-delay: .5s;
   animation-duration: 1s;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  /* width */
+  /* Handle */
+  /* Handle on hover */ }
+  .pages::-webkit-scrollbar {
+    width: 20px; }
+  .pages::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #555;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); }
+  .pages::-webkit-scrollbar-thumb:hover {
+    background: #666; }
 @keyframes pagesFadeIn {
   0% {
     opacity: 0; }
@@ -28,6 +41,7 @@
     box-sizing: border-box;
     opacity: 0;
     width: 100%;
+    height: 100%;
     animation-name: fadeOut;
     animation-duration: .25s;
     animation-fill-mode: both;
