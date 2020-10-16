@@ -12,7 +12,7 @@
     "clients": [],
     "invoices": [
       {
-        "invoiceID": "",
+        "invoiceID": "1",
         "invoiceName": "",
         "clientID": "",
         "fromName": "",
@@ -31,24 +31,35 @@
           "zip": ""
         },
         "toPhone": "",
-        "date": "",
+        "date": "2020-09-10",
         "amountBilled": null,
         "balanceDue": null,
-        "items": [
-          {
-            "description": "",
-            "rate": null,
-            "qty": null,
-            "amount": null,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": null,
+          "qty": null,
+          "amount": null,
+          "tax": false,
+          "additionalDetails": ""
+        }
       }
     ]
   },
   {
     "userID": "1",
+    "user": "",
+    "pass": "",
+    "personalInfo": {
+      "name": "Guest",
+      "address": "",
+      "email": "",
+      "phone": ""
+    },
+    "clients": [],
+    "invoices": []
+  },
+  {
+    "userID": "2",
     "user": "admin",
     "pass": "pass",
     "personalInfo": {
@@ -97,16 +108,14 @@
         "date": "2020-09-10",
         "amountBilled": 950.0,
         "balanceDue": 0,
-        "items": [
-          {
-            "description": "",
-            "rate": 40,
-            "qty": 5,
-            "amount": 200,
-            "tax": false,
-            "additionalDetails": "Some random additional details for filler text here.."
-          }
-        ]
+        "items": {
+          "description": "Random description text here..",
+          "rate": 40,
+          "qty": 5,
+          "amount": 200,
+          "tax": false,
+          "additionalDetails": "Some random additional details for filler text here.."
+        }
       },
       {
         "invoiceID": "2",
@@ -131,16 +140,14 @@
         "date": "2020-09-15",
         "amountBilled": 1120.49,
         "balanceDue": 0,
-        "items": [
-          {
-            "description": "",
-            "rate": 0.00,
-            "qty": 0,
-            "amount": 0,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": 0.00,
+          "qty": 0,
+          "amount": 0,
+          "tax": false,
+          "additionalDetails": ""
+        }
       },
       {
         "invoiceID": "3",
@@ -165,16 +172,14 @@
         "date": "2020-10-03",
         "amountBilled": 1160.25,
         "balanceDue": 1160.25,
-        "items": [
-          {
-            "description": "",
-            "rate": 0.00,
-            "qty": 0,
-            "amount": 0,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": 0.00,
+          "qty": 0,
+          "amount": 0,
+          "tax": false,
+          "additionalDetails": ""
+        }
       },
       {
         "invoiceID": "4",
@@ -199,16 +204,14 @@
         "date": "2020-10-17",
         "amountBilled": 1250.94,
         "balanceDue": 750.94,
-        "items": [
-          {
-            "description": "",
-            "rate": 0.00,
-            "qty": 0,
-            "amount": 0,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": 0.00,
+          "qty": 0,
+          "amount": 0,
+          "tax": false,
+          "additionalDetails": ""
+        }
       },
       {
         "invoiceID": "5",
@@ -233,16 +236,14 @@
         "date": "2020-11-01",
         "amountBilled": 1097.34,
         "balanceDue": 297.34,
-        "items": [
-          {
-            "description": "",
-            "rate": 0.00,
-            "qty": 0,
-            "amount": 0,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": 0.00,
+          "qty": 0,
+          "amount": 0,
+          "tax": false,
+          "additionalDetails": ""
+        }
       },
       {
         "invoiceID": "6",
@@ -267,16 +268,14 @@
         "date": "2020-11-16",
         "amountBilled": 1422.27,
         "balanceDue": 422.27,
-        "items": [
-          {
-            "description": "",
-            "rate": 0.00,
-            "qty": 0,
-            "amount": 0,
-            "tax": false,
-            "additionalDetails": ""
-          }
-        ]
+        "items": {
+          "description": "",
+          "rate": 0.00,
+          "qty": 0,
+          "amount": 0,
+          "tax": false,
+          "additionalDetails": ""
+        }
       }
     ]
   }

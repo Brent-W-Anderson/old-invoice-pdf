@@ -21,6 +21,11 @@ export default class LoginSignUp extends React.Component {
     for(let x = 0; x < users.length; x++) {
       if (users[x].user.toLowerCase() === this.state.user.toLowerCase() && users[x].pass === this.state.pass) {
         event.preventDefault();
+
+        if(users[x].user === "template") { // just a template, not an actual user.
+          return;
+        }
+
         login(users[x]);
         this.animateOut();
         return;

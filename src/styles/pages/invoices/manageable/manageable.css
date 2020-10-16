@@ -227,7 +227,7 @@
                 border-radius: 3px 3px 0 10px;
                 width: 300px;
                 color: white;
-                margin-top: -104px;
+                margin-top: -114px;
                 margin-left: -319px; }
                 .manageable .invoice .item-list .items .item .email-warning .warning-icon.show .note .note-accent {
                   position: absolute;
@@ -238,7 +238,8 @@
                   border-top: 10px solid #222; }
                 .manageable .invoice .item-list .items .item .email-warning .warning-icon.show .note span {
                   font-weight: bold;
-                  color: red; }
+                  color: red;
+                  text-shadow: 0 0 3px black, 0 0 2px white; }
               .manageable .invoice .item-list .items .item .email-warning .warning-icon.show:hover {
                 background-color: rgba(255, 0, 0, 0.6);
                 transition: .2s; }

@@ -16,12 +16,12 @@ import '../styles/app.css';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: true, // set to true to bypass logging in.
+    loggedIn: false, // set to true to bypass logging in.
     transitionOut: false,
-    activeUser: "The King", // can put whatever name you want here if loggedIn is set to true.
+    activeUser: "", // can put whatever name you want here if loggedIn is set to true.
     activePage: "invoices",
     invoiceMode: "view", // dont change this unless you want to start with a specific manageable invoice.
-    userData: UsersJSON[1], // set to the specific array index from the users if looking for some sample data.
+    userData: {}, // set to the specific array index from the users if looking for some sample data.
     users: UsersJSON,
     appData: AppJSON
   };
@@ -92,6 +92,8 @@ export default class App extends React.Component {
 
 
   createInvoice = idx => {
+    console.log(UsersJSON[0].invoices[0]);
+
     this.setState(prevState => ({
       userData: {
         ...prevState.userData,
@@ -213,6 +215,26 @@ export default class App extends React.Component {
 
       case "date":
         newUserData.invoices[invoiceIdx].date = newVal;
+        overwriteState();
+        break;
+
+      case "description":
+        newUserData.invoices[invoiceIdx].items.description = newVal;
+        overwriteState();
+        break;
+
+      case "rate":
+        newUserData.invoices[invoiceIdx].items.rate = newVal;
+        overwriteState();
+        break;
+
+      case "qty":
+        newUserData.invoices[invoiceIdx].items.qty = newVal;
+        overwriteState();
+        break;
+
+      case "additionalDetails":
+        newUserData.invoices[invoiceIdx].items.additionalDetails = newVal;
         overwriteState();
         break;
 

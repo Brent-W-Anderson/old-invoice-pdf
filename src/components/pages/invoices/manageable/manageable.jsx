@@ -154,7 +154,7 @@ export default class Manageable extends React.Component {
                   <input type="email" id="fromEmail" value={invoice.fromEmail} onChange={this.checkValidation(userData, invoiceIdx, clientIdx, modifyInvoice)} />
                   <div className="email-warning">
                     <div className={`warning-icon${this.state.fromEmailWarning}`}> !
-                      <div className="note"> <span>Warning:</span> Invalid email address formatting, make sure this is what you intended.
+                      <div className="note"> <span>Warning!</span> Invalid email address formatting, make sure this is what you intended.
                         <div className="note-accent"></div>
                       </div>
                     </div>
@@ -225,7 +225,7 @@ export default class Manageable extends React.Component {
                   <input type="email" id="billToEmail" value={this.state.toEmail} onChange={this.checkValidation(userData, invoiceIdx, clientIdx, modifyInvoice)} />
                   <div className="email-warning">
                     <div className={`warning-icon${this.state.billToEmailWarning}`}> !
-                      <div className="note"> <span>Warning:</span> Invalid email address formatting, make sure this is what you intended.
+                      <div className="note"> <span>Warning!</span> Invalid email address formatting, make sure this is what you intended.
                         <div className="note-accent"></div>
                       </div>
                     </div>
@@ -303,17 +303,17 @@ export default class Manageable extends React.Component {
                       <td/>
                       <td className="left">
                         <div className="item">
-                          <input className="full-width left" type="text" placeholder="Item Description" />
+                          <input id="description" className="full-width left" value={invoice.items.description} type="text" placeholder="Item Description" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
                         </div>
                       </td>
                       <td>
                         <div className="item">
-                          <input className="full-width" type="number" placeholder="0.00" />
+                          <input id="rate" className="full-width" value={invoice.items.rate === null ? "" : invoice.items.rate} type="number" placeholder="0.00" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
                         </div>
                       </td>
                       <td>
                         <div className="item">
-                          <input className="full-width" type="number" placeholder="0" />
+                          <input id="qty" className="full-width" value={invoice.items.qty === null ? "" : invoice.items.qty} type="number" placeholder="0" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
                         </div>
                       </td>
                       <td>  </td>
@@ -323,7 +323,7 @@ export default class Manageable extends React.Component {
                     <tr>
                       <td/>
                       <td className="left">
-                        <textarea id="additional-details" placeholder="Additional details" />
+                        <textarea id="additionalDetails" value={invoice.items.additionalDetails} placeholder="Additional details" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
                       </td>
                     </tr>
                   </tbody>
