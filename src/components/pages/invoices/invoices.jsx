@@ -29,23 +29,6 @@ export default class Invoices extends React.Component {
   };
 
 
-  showAmountBilled = (invoice) => { // which amount to show, based on which button is toggled.
-    if(this.state.activeButton === "paid") {
-      if(invoice.balanceDue === 0) {
-        return "$" + invoice.amountBilled;
-      }else {
-        return "$" + (invoice.amountBilled - invoice.balanceDue);
-      }
-    }
-
-    if(invoice.balanceDue === null || invoice.amountBilled === null) {
-      return null;
-    }
-
-    return "$" + invoice.balanceDue;
-  }
-
-
   checkBalance = (invoice) => {// check if paid/ owed so the proper colors can be displayed
     if(this.state.activeButton === "paid") {
       return "green";
@@ -69,10 +52,33 @@ export default class Invoices extends React.Component {
   }
 
 
+  showAmountBilled = (invoice, invoiceTotal) => { // which amount to show, based on which button is toggled.
+    if(this.state.activeButton === "paid") {
+      if(invoice.balanceDue !== 0) {
+        return "$" + (invoiceTotal - invoice.balanceDue);
+      }
+
+      return "$" + invoiceTotal;
+    }
+
+    if(invoice.balanceDue === null || invoice.amountBilled === null) {
+      return null;
+    }
+
+    return "$" + invoice.balanceDue;
+  }
+
+
   createList = (invoice, idx) => { // shows a list item.
     function checkForNullBalance(app) {
       if(invoice.balanceDue !== null && invoice.amountBilled !== null) {
-        return app.showAmountBilled(invoice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        let invoiceTotal = 0;
+
+        for(var x = 0; x < invoice.items.length; x++) {
+          invoiceTotal += (invoice.items[x].rate * invoice.items[x].qty);
+        }
+
+        return app.showAmountBilled(invoice, invoiceTotal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
 
       return "";
@@ -84,7 +90,7 @@ export default class Invoices extends React.Component {
         <td> {invoice.toName} </td>
         <td> {Moment(invoice.date).format('MMM DD, YYYY')} </td>
         <td className={this.checkBalance(invoice)}>
-          {`${checkForNullBalance(this)}`}
+          {checkForNullBalance(this)}
           <div className="delete-container">
             <div onClick={this.deleteInvoice(invoice, idx)} className="delete-btn"> X </div>
           </div>
@@ -132,10 +138,11 @@ export default class Invoices extends React.Component {
     }
 
     function checkBtnState(btn) {
-      if(btn === "unpaid" || btn ==="allInvoices") {
+      if(btn === "unpaid" || btn ==="allInvoices") { // send the balance due
         return balanceDue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       };
 
+      // otherwise, send what all was paid so far
       return (amountBilled - balanceDue).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 

@@ -93,6 +93,55 @@ export default class Manageable extends React.Component {
   };
 
 
+  buildItems = (userData, invoice, invoiceIdx, clientIdx) => (item, idx) => {
+    const { modifyInvoice } = this.props;
+
+    function itemTotal() {
+      const itemTotal = (item.rate * item.qty).toFixed(2);
+
+      if(itemTotal > 9999999.99) {
+        return "too large!";
+      }
+
+      return "$" + itemTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    return(
+      <tbody key={idx}>
+        <tr>
+          <td/>
+          <td className="left">
+            <div className="item">
+              <input id="description" className="full-width left" value={item.description} type="text" placeholder="Item Description" onChange={modifyInvoice(userData, invoiceIdx, clientIdx, undefined, undefined, idx)} />
+            </div>
+          </td>
+          <td>
+            <div className="item">
+              <input id="rate" className="full-width" value={item.rate === null ? "" : item.rate} type="number" placeholder="0.00" onChange={modifyInvoice(userData, invoiceIdx, clientIdx, undefined, undefined, idx)} />
+            </div>
+          </td>
+          <td>
+            <div className="item">
+              <input id="qty" className="full-width" value={item.qty === null ? "" : item.qty} type="number" placeholder="0" onChange={modifyInvoice(userData, invoiceIdx, clientIdx, undefined, undefined, idx)} />
+            </div>
+          </td>
+          <td>
+            <p className="amount">{itemTotal()}</p>
+          </td>
+          <td>  </td>
+        </tr>
+
+        <tr>
+          <td/>
+          <td className="left">
+            <textarea id="additionalDetails" value={item.additionalDetails} placeholder="Additional details" onChange={modifyInvoice(userData, invoiceIdx, clientIdx, undefined, undefined, idx)} />
+          </td>
+        </tr>
+      </tbody>
+    );
+  };
+
+
   render() {
     const { userData, invoiceIdx, setActiveModeView, modifyInvoice } = this.props;
 
@@ -298,35 +347,7 @@ export default class Manageable extends React.Component {
                     <col span="1" style={{width: "5%"}} />
                   </colgroup>
 
-                  <tbody>
-                    <tr>
-                      <td/>
-                      <td className="left">
-                        <div className="item">
-                          <input id="description" className="full-width left" value={invoice.items.description} type="text" placeholder="Item Description" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
-                        </div>
-                      </td>
-                      <td>
-                        <div className="item">
-                          <input id="rate" className="full-width" value={invoice.items.rate === null ? "" : invoice.items.rate} type="number" placeholder="0.00" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
-                        </div>
-                      </td>
-                      <td>
-                        <div className="item">
-                          <input id="qty" className="full-width" value={invoice.items.qty === null ? "" : invoice.items.qty} type="number" placeholder="0" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
-                        </div>
-                      </td>
-                      <td>  </td>
-                      <td>  </td>
-                    </tr>
-
-                    <tr>
-                      <td/>
-                      <td className="left">
-                        <textarea id="additionalDetails" value={invoice.items.additionalDetails} placeholder="Additional details" onChange={modifyInvoice(userData, invoiceIdx, clientIdx)} />
-                      </td>
-                    </tr>
-                  </tbody>
+                  {invoice.items.map(this.buildItems(userData, invoice, invoiceIdx, clientIdx))}
                 </table>
               </div>
             </form>

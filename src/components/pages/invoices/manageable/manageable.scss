@@ -167,6 +167,15 @@
             }
           }
 
+          p {
+            &.amount {
+              margin: 0 0 0 10px;
+              width: calc(100% - 10px);
+              font-size: 16px;
+              padding: 5px;
+            }
+          }
+
           textarea {
             font-family: Roboto;
             font-size: 16px;

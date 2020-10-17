@@ -92,7 +92,7 @@ export default class App extends React.Component {
 
 
   createInvoice = idx => {
-    console.log(UsersJSON[0].invoices[0]);
+    console.log({...UsersJSON[0].invoices[0]});
 
     this.setState(prevState => ({
       userData: {
@@ -110,7 +110,7 @@ export default class App extends React.Component {
   };
 
 
-  modifyInvoice = (userData, invoiceIdx, clientIdx, otherInputSelected, otherData) => (inputSelected) => { // editing specific invoice data and storing it back in state
+  modifyInvoice = (userData, invoiceIdx, clientIdx, otherInputSelected, otherData, itemIdx) => (inputSelected) => { // editing specific invoice data and storing it back in state
     const app = this;
     let targetID, newVal;
 
@@ -133,6 +133,7 @@ export default class App extends React.Component {
           console.warn("no other input selected to save to app state.");
       };
     }
+
     let newUserData = userData;
 
     function overwriteState() {
@@ -219,22 +220,38 @@ export default class App extends React.Component {
         break;
 
       case "description":
-        newUserData.invoices[invoiceIdx].items.description = newVal;
+        newUserData.invoices[invoiceIdx].items[itemIdx].description = newVal;
         overwriteState();
         break;
 
       case "rate":
-        newUserData.invoices[invoiceIdx].items.rate = newVal;
+        if(newVal <= 0) {
+          newUserData.invoices[invoiceIdx].items[itemIdx].rate = "";
+          newUserData.invoices[invoiceIdx].amountBilled = null;
+          newUserData.invoices[invoiceIdx].balanceDue = null;
+        }else {
+          newUserData.invoices[invoiceIdx].items[itemIdx].rate = newVal;
+          newUserData.invoices[invoiceIdx].amountBilled = newVal * newUserData.invoices[invoiceIdx].items[itemIdx].qty;
+          newUserData.invoices[invoiceIdx].balanceDue = newVal * newUserData.invoices[invoiceIdx].items[itemIdx].qty;
+        }
         overwriteState();
         break;
 
       case "qty":
-        newUserData.invoices[invoiceIdx].items.qty = newVal;
+        if(newVal <= 0) {
+          newUserData.invoices[invoiceIdx].items[itemIdx].qty = "";
+          newUserData.invoices[invoiceIdx].amountBilled = null;
+          newUserData.invoices[invoiceIdx].balanceDue = null;
+        }else {
+          newUserData.invoices[invoiceIdx].items[itemIdx].qty = newVal;
+          newUserData.invoices[invoiceIdx].amountBilled = newVal * newUserData.invoices[invoiceIdx].items[itemIdx].rate;
+          newUserData.invoices[invoiceIdx].balanceDue = newVal * newUserData.invoices[invoiceIdx].items[itemIdx].rate;
+        }
         overwriteState();
         break;
 
       case "additionalDetails":
-        newUserData.invoices[invoiceIdx].items.additionalDetails = newVal;
+        newUserData.invoices[invoiceIdx].items[itemIdx].additionalDetails = newVal;
         overwriteState();
         break;
 

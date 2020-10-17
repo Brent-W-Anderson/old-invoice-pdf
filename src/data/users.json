@@ -34,14 +34,15 @@
         "date": "2020-09-10",
         "amountBilled": null,
         "balanceDue": null,
-        "items": {
-          "description": "",
-          "rate": null,
-          "qty": null,
-          "amount": null,
-          "tax": false,
-          "additionalDetails": ""
-        }
+        "items": [
+          {
+            "description": "",
+            "rate": null,
+            "qty": null,
+            "tax": false,
+            "additionalDetails": ""
+          }
+        ]
       }
     ]
   },
@@ -106,23 +107,24 @@
         },
         "toPhone": "(123) 456-7890",
         "date": "2020-09-10",
-        "amountBilled": 950.0,
+        "amountBilled": 185.65,
         "balanceDue": 0,
-        "items": {
-          "description": "Random description text here..",
-          "rate": 40,
-          "qty": 5,
-          "amount": 200,
-          "tax": false,
-          "additionalDetails": "Some random additional details for filler text here.."
-        }
+        "items": [
+          {
+            "description": "rubber bands",
+            "rate": 37.13,
+            "qty": 5,
+            "tax": false,
+            "additionalDetails": "additional details.."
+          }
+        ]
       },
       {
         "invoiceID": "2",
         "invoiceName": "Invoice #1",
         "clientID": "2",
-        "fromName": "The King",
-        "fromEmail": "",
+        "fromName": "Joe",
+        "fromEmail": "testingInvalid.fdsa",
         "fromAddress": {
           "street": "",
           "cityState": "",
@@ -130,95 +132,39 @@
         },
         "fromPhone": "",
         "toName": "Amazon",
-        "toEmail": "invalidEmail.address",
+        "toEmail": "testing@email.com",
         "toAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
+          "street": "123 apple ln.",
+          "cityState": "Los Angeles, CA",
+          "zip": "90001"
         },
-        "toPhone": "",
-        "date": "2020-09-15",
-        "amountBilled": 1120.49,
+        "toPhone": "(123) 456-7890",
+        "date": "2020-09-10",
+        "amountBilled": 385.65,
         "balanceDue": 0,
-        "items": {
-          "description": "",
-          "rate": 0.00,
-          "qty": 0,
-          "amount": 0,
-          "tax": false,
-          "additionalDetails": ""
-        }
+        "items": [
+          {
+            "description": "paper clips",
+            "rate": 37.13,
+            "qty": 5,
+            "tax": false,
+            "additionalDetails": "Additional details for paper clips.."
+          },
+          {
+            "description": "apples",
+            "rate": 40,
+            "qty": 5,
+            "tax": false,
+            "additionalDetails": "Additional details for apples.."
+          }
+        ]
       },
       {
         "invoiceID": "3",
         "invoiceName": "Invoice #2",
-        "clientID": "1",
-        "fromName": "The King",
-        "fromEmail": "",
-        "fromAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "fromPhone": "",
-        "toName": "Google",
-        "toEmail": "",
-        "toAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "toPhone": "",
-        "date": "2020-10-03",
-        "amountBilled": 1160.25,
-        "balanceDue": 1160.25,
-        "items": {
-          "description": "",
-          "rate": 0.00,
-          "qty": 0,
-          "amount": 0,
-          "tax": false,
-          "additionalDetails": ""
-        }
-      },
-      {
-        "invoiceID": "4",
-        "invoiceName": "Invoice #3",
-        "clientID": "1",
-        "fromName": "The King",
-        "fromEmail": "",
-        "fromAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "fromPhone": "",
-        "toName": "Google",
-        "toEmail": "",
-        "toAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "toPhone": "",
-        "date": "2020-10-17",
-        "amountBilled": 1250.94,
-        "balanceDue": 750.94,
-        "items": {
-          "description": "",
-          "rate": 0.00,
-          "qty": 0,
-          "amount": 0,
-          "tax": false,
-          "additionalDetails": ""
-        }
-      },
-      {
-        "invoiceID": "5",
-        "invoiceName": "Invoice #2",
         "clientID": "2",
-        "fromName": "The King",
-        "fromEmail": "",
+        "fromName": "Joe",
+        "fromEmail": "testingInvalid.fdsa",
         "fromAddress": {
           "street": "",
           "cityState": "",
@@ -226,56 +172,32 @@
         },
         "fromPhone": "",
         "toName": "Amazon",
-        "toEmail": "",
+        "toEmail": "testing@email.com",
         "toAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
+          "street": "123 apple ln.",
+          "cityState": "Los Angeles, CA",
+          "zip": "90001"
         },
-        "toPhone": "",
-        "date": "2020-11-01",
-        "amountBilled": 1097.34,
-        "balanceDue": 297.34,
-        "items": {
-          "description": "",
-          "rate": 0.00,
-          "qty": 0,
-          "amount": 0,
-          "tax": false,
-          "additionalDetails": ""
-        }
-      },
-      {
-        "invoiceID": "6",
-        "invoiceName": "Invoice #4",
-        "clientID": "1",
-        "fromName": "The King",
-        "fromEmail": "",
-        "fromAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "fromPhone": "",
-        "toName": "Google",
-        "toEmail": "",
-        "toAddress": {
-          "street": "",
-          "cityState": "",
-          "zip": ""
-        },
-        "toPhone": "",
-        "date": "2020-11-16",
-        "amountBilled": 1422.27,
-        "balanceDue": 422.27,
-        "items": {
-          "description": "",
-          "rate": 0.00,
-          "qty": 0,
-          "amount": 0,
-          "tax": false,
-          "additionalDetails": ""
-        }
+        "toPhone": "(123) 456-7890",
+        "date": "2020-09-10",
+        "amountBilled": 385.65,
+        "balanceDue": 385.65,
+        "items": [
+          {
+            "description": "paper clips",
+            "rate": 37.13,
+            "qty": 5,
+            "tax": false,
+            "additionalDetails": "Additional details for paper clips.."
+          },
+          {
+            "description": "apples",
+            "rate": 40,
+            "qty": 5,
+            "tax": false,
+            "additionalDetails": "Additional details for apples.."
+          }
+        ]
       }
     ]
   }
