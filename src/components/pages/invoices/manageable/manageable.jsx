@@ -1,3 +1,8 @@
+
+//NOTES:
+  // add an input that allows the user to change how much of the invoice has been paid or not.
+  // (this is important for the all Invoices, Unpaid, and paid views)
+
 import React from 'react';
 
 import '../../../../styles/pages/invoices/manageable/manageable.css';
@@ -138,6 +143,13 @@ export default class Manageable extends React.Component {
           </td>
         </tr>
       </tbody>
+    );
+  };
+
+
+  swapInvoiceID = (invoice, idx) => {
+    return(
+      <option key={idx}> {invoice.invoiceID} </option>
     );
   };
 

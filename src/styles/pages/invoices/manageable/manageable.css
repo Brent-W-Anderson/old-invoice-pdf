@@ -124,18 +124,18 @@
           background-color: white;
           border: 0;
           border-bottom: 1px solid transparent;
-          box-shadow: 0 0 2px #aaa;
+          box-shadow: 0 0 2px #555;
           padding: 5px;
           width: 100%;
           height: 62px; }
           .manageable .invoice .item-list .items table textarea::placeholder {
             font-family: Roboto;
             font-size: 16px;
-            color: #ccc; }
+            color: #bbb; }
           .manageable .invoice .item-list .items table textarea:focus {
             border-color: transparent;
             border-bottom: 1px solid deepskyblue;
-            box-shadow: 0 0 3px #888;
+            box-shadow: 0 0 3px #222;
             transition: 0s; }
             .manageable .invoice .item-list .items table textarea:focus::placeholder {
               color: #aaa; }
@@ -146,18 +146,22 @@
         .manageable .invoice .item-list .items .item #invoiceName {
           padding: 10px;
           font-size: 20px;
-          color: #888;
+          color: #666;
           letter-spacing: 2px;
           word-spacing: 2px;
           font-weight: bold;
-          box-shadow: 0 0 2px #aaa;
+          box-shadow: 0 0 2px #555;
           border-bottom: 1px solid transparent;
           transition: 0s; }
+          .manageable .invoice .item-list .items .item #invoiceName::placeholder {
+            color: #ccc; }
           .manageable .invoice .item-list .items .item #invoiceName:focus {
             border-color: transparent;
             border-bottom: 1px solid deepskyblue;
-            box-shadow: 0 0 3px #111;
+            box-shadow: 0 0 3px #222;
             transition: 0s; }
+            .manageable .invoice .item-list .items .item #invoiceName:focus::placeholder {
+              color: #bbb; }
         .manageable .invoice .item-list .items .item.text {
           padding: 5px; }
         .manageable .invoice .item-list .items .item.invoiceName {
@@ -169,41 +173,42 @@
         .manageable .invoice .item-list .items .item input[type=number]::-webkit-outer-spin-button, .manageable .invoice .item-list .items .item input[type=number]::-webkit-inner-spin-button {
           -webkit-appearance: none;
           margin: 0; }
-        .manageable .invoice .item-list .items .item input {
+        .manageable .invoice .item-list .items .item input, .manageable .invoice .item-list .items .item select {
           box-sizing: border-box;
           background-color: white;
-          border-bottom: 1px solid transparent;
-          box-shadow: 0 0 2px #aaa;
+          border-radius: 5px;
+          border: 1px solid transparent;
+          box-shadow: 0 0 2px #555;
           padding: 5px;
           width: 250px;
           margin: 0;
           text-align: left;
           transition: 0s; }
-          .manageable .invoice .item-list .items .item input[type=date], .manageable .invoice .item-list .items .item input[type=number], .manageable .invoice .item-list .items .item input[type=email], .manageable .invoice .item-list .items .item input[type=tel] {
+          .manageable .invoice .item-list .items .item input[type=date], .manageable .invoice .item-list .items .item input[type=number], .manageable .invoice .item-list .items .item input[type=email], .manageable .invoice .item-list .items .item input[type=tel], .manageable .invoice .item-list .items .item select[type=date], .manageable .invoice .item-list .items .item select[type=number], .manageable .invoice .item-list .items .item select[type=email], .manageable .invoice .item-list .items .item select[type=tel] {
             font-family: Roboto;
             font-size: 16px;
             margin: 0;
             border-radius: 5px;
             border: 0;
             border-bottom: 1px solid transparent; }
-          .manageable .invoice .item-list .items .item input.full-width {
+          .manageable .invoice .item-list .items .item input.full-width, .manageable .invoice .item-list .items .item select.full-width {
             width: calc(100% - 10px);
             margin: 0;
             margin-left: 10px;
             text-align: right; }
-            .manageable .invoice .item-list .items .item input.full-width.left {
+            .manageable .invoice .item-list .items .item input.full-width.left, .manageable .invoice .item-list .items .item select.full-width.left {
               width: 100%;
               margin: 0;
               margin-left: 0;
               text-align: left; }
-          .manageable .invoice .item-list .items .item input::placeholder {
-            color: #ccc; }
-          .manageable .invoice .item-list .items .item input:focus {
+          .manageable .invoice .item-list .items .item input::placeholder, .manageable .invoice .item-list .items .item select::placeholder {
+            color: #bbb; }
+          .manageable .invoice .item-list .items .item input:focus, .manageable .invoice .item-list .items .item select:focus {
             border-color: transparent;
             border-bottom: 1px solid deepskyblue;
-            box-shadow: 0 0 3px #888;
+            box-shadow: 0 0 3px #222;
             transition: 0s; }
-            .manageable .invoice .item-list .items .item input:focus::placeholder {
+            .manageable .invoice .item-list .items .item input:focus::placeholder, .manageable .invoice .item-list .items .item select:focus::placeholder {
               color: #aaa; }
         .manageable .invoice .item-list .items .item .email-warning {
           float: right; }

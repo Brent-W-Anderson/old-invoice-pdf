@@ -92,18 +92,16 @@ export default class App extends React.Component {
 
 
   createInvoice = idx => {
-    console.log({...UsersJSON[0].invoices[0]});
+    let template = JSON.parse(JSON.stringify(UsersJSON[0].invoices[0]));
+          template.invoiceID = idx + 1;
+          template.date = Moment(new Date()).format("YYYY-MM-DD");
+
 
     this.setState(prevState => ({
       userData: {
         ...prevState.userData,
         invoices: [
-          ...prevState.userData.invoices,
-          {
-            ...UsersJSON[0].invoices[0],
-            invoiceID: idx + 1,
-            date: Moment(new Date()).format("YYYY-MM-DD")
-          }
+          ...prevState.userData.invoices, template
         ]
       }
     }));
@@ -134,7 +132,7 @@ export default class App extends React.Component {
       };
     }
 
-    let newUserData = userData;
+    let newUserData = this.state.userData;
 
     function overwriteState() {
       app.setState({
@@ -219,6 +217,15 @@ export default class App extends React.Component {
         overwriteState();
         break;
 
+      case "number":
+        // swapping ID's
+        newUserData.invoices[invoiceIdx].invoiceID = newVal;
+        newUserData.invoices[parseInt(newVal) - 1].invoiceID = invoiceIdx + 1;
+        overwriteState();
+        break;
+
+      // ITEMS
+
       case "description":
         newUserData.invoices[invoiceIdx].items[itemIdx].description = newVal;
         overwriteState();
@@ -278,6 +285,8 @@ export default class App extends React.Component {
 
   render() {
     let app = this.state;
+    console.log(process.env.REACT_APP_USER);
+    console.log(process.env.REACT_APP_HTML_TO_PDF_KEY);
 
     if(app.loggedIn) { // if logged in
       return (
