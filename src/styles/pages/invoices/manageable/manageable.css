@@ -15,26 +15,49 @@
     border: 1px solid transparent;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: .1s ease-in-out; }
-    .manageable .utility-bar .button.back {
+    .manageable .utility-bar .button.black {
       color: white;
       border: 1px solid #bbb;
       background-color: #555;
       background-image: none;
       transition: .2s ease-in-out; }
-      .manageable .utility-bar .button.back:hover {
+      .manageable .utility-bar .button.black:hover {
         transform: scale(1.02);
         background-color: #666;
         background-image: none;
         border: 1px solid #bbb;
         text-shadow: 0 0 1px white;
         transition: .2s ease-in-out; }
-      .manageable .utility-bar .button.back:active {
+      .manageable .utility-bar .button.black:active {
         transform: scale(0.98);
         background-color: #555;
         background-image: none;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         height: 20px;
         border: 1px solid #bbb;
+        text-shadow: 0 0 0 white;
+        transition: .1s ease-in-out; }
+    .manageable .utility-bar .button.blue {
+      float: right;
+      color: white;
+      border: 1px solid #ddd;
+      background-color: #6fa5fc;
+      background-image: none;
+      transition: .2s ease-in-out; }
+      .manageable .utility-bar .button.blue:hover {
+        transform: scale(1.02);
+        border: 1px solid #ddd;
+        background-color: #7eaefc;
+        background-image: none;
+        text-shadow: 0 0 1px white;
+        transition: .2s ease-in-out; }
+      .manageable .utility-bar .button.blue:active {
+        transform: scale(0.98);
+        border: 1px solid #ddd;
+        background-color: #659ffc;
+        background-image: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        height: 20px;
         text-shadow: 0 0 0 white;
         transition: .1s ease-in-out; }
     .manageable .utility-bar .button.preview {

@@ -6,6 +6,7 @@
 import React from 'react';
 
 import '../../../../styles/pages/invoices/manageable/manageable.css';
+import Preview from '../preview/preview';
 
 export default class Manageable extends React.Component {
   state = {
@@ -366,7 +367,7 @@ export default class Manageable extends React.Component {
           </div>
 
           <div className="utility-bar">
-            <div className="button back" onClick={setActiveModeView}> Back </div>
+            <div className="button black" onClick={setActiveModeView}> Back </div>
           </div>
         </div>
       );
@@ -389,9 +390,7 @@ export default class Manageable extends React.Component {
             </div>
           </div>
 
-          <div className="utility-bar">
-            <div className="button back" onClick={setActiveModeView}> Back </div>
-          </div>
+          <Preview invoice={invoice} setActiveModeView={setActiveModeView} />
         </div>
       );
     }

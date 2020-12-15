@@ -280,13 +280,11 @@ export default class App extends React.Component {
     this.setState({
       userData: newUserData
     });
-  }
+  };
 
 
   render() {
     let app = this.state;
-    console.log(process.env.REACT_APP_USER);
-    console.log(process.env.REACT_APP_HTML_TO_PDF_KEY);
 
     if(app.loggedIn) { // if logged in
       return (
